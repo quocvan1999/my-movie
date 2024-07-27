@@ -4,6 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import CustomButtonGroupAsArrows from "./CustomButtonGroupAsArrows";
 import CaroucelItem from "./CaroucelItem";
+import CaroucelContent from "./CaroucelContent";
 
 const responsive = {
   superLargeDesktop: {
@@ -86,50 +87,12 @@ const Caroucel = () => {
           background: "radial-gradient(circle, transparent, black)",
         }}
       >
-        <div className="max-w-[1280px] h-full mx-auto py-[100px] flex items-center">
+        <div className="h-full max-w-[1280px] mx-auto py-[100px] flex items-center">
           <div className="w-[50%] h-full flex flex-col justify-center">
-            <h1
-              className="text-6xl font-extrabold text-transparent bg-clip-text bg-center bg-cover"
-              style={{
-                backgroundImage:
-                  "url(../../../../../public/images/texture.jpg)",
-              }}
-            >
-              The Hunter
-            </h1>
-            <p className="text-gray-300 mt-3 mb-8">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-              quos odio maxime voluptas corporis commodi dicta expedita numquam
-              aliquam quod reprehenderit, quia officiis corrupti voluptatum cum
-              dolores necessitatibus.
-            </p>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center">
-                <i className="bx bxs-star text-2xl text-yellow-400"></i>
-                <i className="bx bxs-star text-2xl text-yellow-400"></i>
-                <i className="bx bxs-star text-2xl text-yellow-400"></i>
-                <i className="bx bxs-star text-2xl text-yellow-400"></i>
-                <i className="bx bxs-star text-2xl text-yellow-400"></i>
-                <span className="font-medium text-2xl text-white ml-3">
-                  5.0
-                </span>
-              </div>
-              <p className="text-[14px] text-white">1hr: 58mins</p>
-              <p className="text-[14px] text-white">
-                <span className="text-[#E40813]">Genres: </span>Drama
-              </p>
-              <p className="text-[14px] text-white">
-                <span className="text-[#E40813]">Starring: </span>Olivia Foster
-              </p>
-            </div>
-            <div className="mt-14">
-              <button className="bg-[#E40813] text-white uppercase text-[14px] leading-[21px] px-5 py-3 rounded-lg font-semibold flex items-center">
-                stream now <i className="bx bx-play text-[24px]"></i>
-              </button>
-            </div>
+            <CaroucelContent />
           </div>
-          <div className="w-[50%] h-full text-white flex items-center justify-end">
-            <div className="bg-[#0c0c0ce1] h-[90%] w-[70%] p-7 pe-0 flex flex-col justify-between">
+          <div className="w-[50%] h-full text-white flex items-center relative ">
+            <div className="bg-[#0c0c0cd0] h-[350px] w-[65%] p-7 pe-0 flex flex-col justify-between absolute right-0 rounded-lg ">
               <Carousel
                 additionalTransfrom={0}
                 arrows={false}
