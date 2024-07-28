@@ -75,10 +75,11 @@ const Caroucel = () => {
 
   return (
     <div
-      className="w-full h-[100vh] bg-top-center bg-no-repeat"
+      className="w-full h-[100vh]"
       style={{
         background: "url(../../../../../public/images/ott1.webp)",
         backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <div
@@ -106,7 +107,7 @@ const Caroucel = () => {
                 draggable
                 focusOnSelect={false}
                 infinite={true}
-                itemClass=""
+                itemClass="caroucel-banner-custome"
                 keyBoardControl
                 minimumTouchDrag={80}
                 pauseOnHover

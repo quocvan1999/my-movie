@@ -35,7 +35,7 @@ const CaroucelContent = () => {
         </p>
       </div>
       <div className="mt-14">
-        <button className="bg-[#E40813] text-white uppercase text-[14px] leading-[21px] px-5 py-3 rounded-lg font-semibold flex items-center">
+        <button className="bg-[#E40813] text-white uppercase text-[14px] leading-[21px] px-5 py-3 rounded-lg font-semibold flex items-center hover:bg-[#b82b32] transition-all ease-in-out duration-500">
           stream now <i className="bx bx-play text-[24px]"></i>
         </button>
       </div>

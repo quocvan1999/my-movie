@@ -134,7 +134,7 @@ const Footer = () => {
             placeholder="Email"
             className="bg-[#191919] placeholder:text-white w-full px-4 py-2 mt-3 rounded-md focus:outline-0"
           />
-          <button className="bg-[#e40813] px-5 py-3 mt-2 rounded-md hover:bg-[#d8363f] transition-all ease-in-out duration-500 text-[14px]">
+          <button className="bg-[#e40813] px-5 py-3 mt-2 rounded-md hover:bg-[#b82b32] transition-all ease-in-out duration-500 text-[14px]">
             SUBSCRIBE
           </button>
         </div>

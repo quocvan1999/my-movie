@@ -5,6 +5,7 @@
 @layer base {
     body {
         font-family: "Roboto", sans-serif;
+        background: black;
     }
 }
 

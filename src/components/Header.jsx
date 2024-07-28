@@ -17,9 +17,10 @@ const Header = () => {
 
   return (
     <div
-      className={`w-full z-50  text-white fixed top-0 left-0 right-0 transition-all duration-500 ease-in-out ${
+      className={`w-full  text-white fixed top-0 left-0 right-0 transition-all duration-500 ease-in-out ${
         isScrolled === true ? "bg-[#151515]" : "bg-transparent"
       }`}
+      style={{ zIndex: "2000" }}
     >
       <div className="max-w-[1280px] mx-auto flex justify-between items-center py-6">
         <div className="max-w-[150px]">
