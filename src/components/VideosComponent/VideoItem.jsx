@@ -1,9 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const VideoItem = () => {
+const VideoItem = ({ width }) => {
   return (
-    <div className="text-white h-[350px] px-3 py-6 rounded-lg hover:scale-110 hover:z-50 transition-all ease-in-out duration-500 group">
+    <div
+      className="text-white h-[350px] px-3 py-6 rounded-lg hover:scale-110 hover:z-50 transition-all ease-in-out duration-500 group"
+      style={{ width: `${width}` }}
+    >
       <div
         className="w-full h-full rounded-lg cursor-pointer"
         style={{
