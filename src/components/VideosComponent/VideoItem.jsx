@@ -3,10 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const VideoItem = () => {
   return (
-    <NavLink
-      to="/"
-      className="text-white h-[350px] px-3 py-6 rounded-lg block hover:scale-110 hover:z-50 transition-all ease-in-out duration-500 group"
-    >
+    <div className="text-white h-[350px] px-3 py-6 rounded-lg hover:scale-110 hover:z-50 transition-all ease-in-out duration-500 group">
       <div
         className="w-full h-full rounded-lg cursor-pointer"
         style={{
@@ -22,13 +19,16 @@ const VideoItem = () => {
             <p className="text-[14px]">1hr: 58mins</p>
           </div>
           <div>
-            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#E40813]">
+            <NavLink
+              to="/detail/10"
+              className="w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-500 ease-in-out hover:bg-[#E40813] hover:border-[#E40813]"
+            >
               <i className="bx bx-play text-3xl text-white"></i>
-            </div>
+            </NavLink>
           </div>
         </div>
       </div>
-    </NavLink>
+    </div>
   );
 };
 

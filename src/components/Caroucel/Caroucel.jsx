@@ -71,8 +71,6 @@ const Caroucel = () => {
     },
   ];
 
-  const [itemActive, setItemActive] = useState([]);
-
   return (
     <div
       className="w-full h-[100vh]"

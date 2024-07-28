@@ -25,12 +25,12 @@ const responsive = {
 
 const VideoList = ({ title }) => {
   return (
-    <div className="max-w-[1280px] mx-auto py-14">
+    <div className="max-w-[1280px] mx-auto py-2">
       <div className="flex justify-between">
         <h1 className="text-white uppercase text-2xl leading-7">{title}</h1>
         <NavLink to="/">View All</NavLink>
       </div>
-      <div className="mt-6">
+      <div>
         <Carousel responsive={responsive}>
           <VideoItem />
           <VideoItem />

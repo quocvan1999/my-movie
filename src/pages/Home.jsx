@@ -7,7 +7,9 @@ const Home = () => {
   return (
     <div>
       <Caroucel />
-      <VideoList title="Top movie" />
+      <div className="mt-10">
+        <VideoList title="Top movie" />
+      </div>
     </div>
   );
 };

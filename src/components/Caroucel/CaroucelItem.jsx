@@ -1,12 +1,15 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 import "./caroucel.css";
 
 const CaroucelItem = ({ item }) => {
   const { img, title } = item;
 
   return (
-    <div className="h-full p-5 transition-all duration-500">
+    <NavLink
+      to="/detail/10"
+      className="h-full p-5 transition-all duration-500 block"
+    >
       <div
         className="w-full h-full bg-blue-500 rounded-lg relative"
         style={{
@@ -22,7 +25,7 @@ const CaroucelItem = ({ item }) => {
           }}
         />
       </div>
-    </div>
+    </NavLink>
   );
 };
 
