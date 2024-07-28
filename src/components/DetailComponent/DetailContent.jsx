@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import ModalTrailer from "../ModalTrailer/ModalTrailer";
 
 const DetailContent = () => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsOpen(!modalIsOpen);
+  };
+
   return (
     <div className="max-w-[1280px] h-full mx-auto">
+      <ModalTrailer toggleModal={toggleModal} modalIsOpen={modalIsOpen} />
       <div className="w-full h-full flex items-start justify-center flex-col">
         <div className="w-full flex items-end">
           <div className="w-[200px] h-[300px] p-3">
             <img
               src="../../public/images/movie/bg-the-black-demon.jpeg"
-              alt="img"
+              alt="..."
               className="w-full h-full block rounded-lg object-cover"
             />
           </div>
@@ -39,7 +47,10 @@ const DetailContent = () => {
               </p>
             </div>
             <div className="flex items-center gap-3 mt-3">
-              <div className="flex items-center group cursor-pointer">
+              <div
+                className="flex items-center group cursor-pointer"
+                onClick={toggleModal}
+              >
                 <div className="w-9 h-9 me-1 border flex items-center justify-center text-[#E40813] rounded-full cursor-pointer transition-all duration-500 ease-in-out hover:bg-[#E40813] hover:text-white">
                   <i className="bx bxs-video"></i>
                 </div>
