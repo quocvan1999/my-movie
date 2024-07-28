@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ModalTrailer from "../ModalTrailer/ModalTrailer";
+import { NavLink } from "react-router-dom";
 
 const DetailContent = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -58,14 +59,17 @@ const DetailContent = () => {
                   Trailer
                 </span>
               </div>
-              <div className="flex items-center group cursor-pointer">
+              <NavLink
+                to="/streamvideo/10"
+                className="flex items-center group cursor-pointer"
+              >
                 <div className="w-9 h-9 me-1 border flex items-center justify-center text-[#E40813] rounded-full cursor-pointer transition-all duration-500 ease-in-out hover:bg-[#E40813] hover:text-white">
                   <i className="bx bx-play text-2xl"></i>
                 </div>
                 <span className="text-white font-semibold group-hover:text-[#E40813] transition-all duration-500 ease-in-out">
                   Watch Now
                 </span>
-              </div>
+              </NavLink>
             </div>
           </div>
         </div>
