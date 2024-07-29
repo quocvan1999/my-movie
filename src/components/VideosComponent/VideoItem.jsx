@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const VideoItem = ({ width }) => {
+const VideoItem = ({ width = "" }) => {
   return (
     <div
       className="text-white h-[350px] px-3 py-6 rounded-lg hover:scale-110 hover:z-50 transition-all ease-in-out duration-500 group"

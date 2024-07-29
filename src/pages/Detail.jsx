@@ -18,7 +18,7 @@ const Detail = () => {
           <DetailContent />
         </div>
       </div>
-      <VideoList title="Phim tương tự" />
+      <VideoList title="Phim tương tự" type="" />
     </div>
   );
 };

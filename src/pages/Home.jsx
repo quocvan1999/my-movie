@@ -1,14 +1,13 @@
 import React from "react";
-
 import Caroucel from "../components/Caroucel/Caroucel";
-import VideoListCaroucel from "../components/VideosComponent/VideoListCaroucel";
+import VideoList from "../components/VideosComponent/VideoList";
 
 const Home = () => {
   return (
     <div>
       <Caroucel />
       <div className="mt-10">
-        <VideoListCaroucel title="Top movie" />
+        <VideoList title="Phim mới" type="caroucel" />
       </div>
     </div>
   );
