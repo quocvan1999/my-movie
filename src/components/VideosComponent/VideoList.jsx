@@ -23,12 +23,16 @@ const responsive = {
   },
 };
 
-const VideoList = ({ title, type }) => {
+const VideoList = ({ title, type, all = true }) => {
   return (
     <div className="max-w-[1280px] mx-auto py-2">
       <div className="flex justify-between">
         <h1 className="text-white uppercase text-2xl leading-7">{title}</h1>
-        <NavLink to="/">View All</NavLink>
+        {all && (
+          <NavLink to="/viewresult/viewall" className="text-[#E40813]">
+            View All
+          </NavLink>
+        )}
       </div>
       <div>
         {type === "caroucel" ? (

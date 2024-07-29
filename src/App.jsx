@@ -4,6 +4,7 @@ import HomePage from "./layouts/HomePage";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import StreamVideo from "./pages/StreamVideo";
+import ViewResult from "./pages/ViewResult";
 
 function App() {
   return (
@@ -16,6 +17,13 @@ function App() {
           </Route>
           <Route path="streamvideo">
             <Route path=":id" element={<StreamVideo />} />
+          </Route>
+          <Route path="viewresult">
+            <Route path="viewall" element={<ViewResult />} />
+            <Route path="phimbo" element={<ViewResult />} />
+            <Route path="phimle" element={<ViewResult />} />
+            <Route path="tvshow" element={<ViewResult />} />
+            <Route path="hoathinh" element={<ViewResult />} />
           </Route>
         </Route>
       </Routes>
