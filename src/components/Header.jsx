@@ -22,7 +22,7 @@ const Header = () => {
 
   return (
     <div
-      className={`w-full text-white fixed top-0 left-0 right-0 transition-all duration-500 ease-in-out z-[2000] ${
+      className={`w-full text-white lg:fixed top-0 left-0 right-0 transition-all duration-500 ease-in-out z-[2000] ${
         isScrolled ? "lg:bg-[#151515]" : ""
       }`}
     >
@@ -51,7 +51,9 @@ const Header = () => {
         <div
           className={`${
             isMenuOpen ? "flex" : "d-none"
-          } lg:flex flex-col lg:flex-row w-full items-center justify-between lg:justify-end gap-6 px-3 py-2 lg:px-0 lg:py-0 bg-[#000000c0] lg:bg-transparent`}
+          } lg:flex flex-col lg:flex-row w-full items-center justify-between lg:justify-end gap-6 px-3 py-2 lg:px-0 lg:py-0 bg-[#000000c0] lg:bg-transparent ${
+            isMenuOpen ? "fixed" : ""
+          }`}
         >
           <nav className="flex flex-col lg:flex-row gap-4 items-center justify-center font-bold text-gray-100">
             <NavLink

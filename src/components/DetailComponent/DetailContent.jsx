@@ -10,18 +10,18 @@ const DetailContent = () => {
   };
 
   return (
-    <div className="max-w-[1280px] h-full mx-auto">
+    <div className="max-w-[1280px] h-full mx-auto lg:py-14">
       <ModalTrailer toggleModal={toggleModal} modalIsOpen={modalIsOpen} />
-      <div className="w-full h-full flex items-start justify-center flex-col">
-        <div className="w-full flex items-end">
-          <div className="w-[200px] h-[300px] p-3">
+      <div className="w-full h-full flex items-start flex-col">
+        <div className="w-full flex flex-col lg:flex-row lg:items-center">
+          <div className="w-[250px] h-[300px] p-3 mx-auto">
             <img
               src="../../public/images/movie/bg-the-black-demon.jpeg"
               alt="..."
               className="w-full h-full block rounded-lg object-cover"
             />
           </div>
-          <div className="w-[calc(100%-200px)] p-3">
+          <div className="p-3 w-full">
             <h1 className="text-3xl text-white font-medium">The Hunter</h1>
             <div className="flex gap-3 text-[14px] leading-[14px] text-white items-center font-medium mt-2">
               <div className="px-2 py-1 rounded-md bg-[#E40813]">FHD</div>

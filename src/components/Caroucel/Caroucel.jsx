@@ -72,7 +72,7 @@ const Caroucel = () => {
   ];
 
   return (
-    <div className="w-full h-[100vh] bg-[url(../../../../../public/images/ott1.webp)] bg-cover bg-no-repeat bg-center">
+    <div className="w-full h-[100vh] lg:mt-0 bg-[url(../../../../../public/images/ott1.webp)] bg-cover bg-no-repeat bg-center">
       <div className="w-full h-full bg-custom-radial ">
         <div className="h-full max-w-[1280px] mx-auto py-[100px] md:flex md:items-center">
           <div className="w-full md:w-[50%] lg:w-[60%] h-full px-3 flex flex-col justify-center">

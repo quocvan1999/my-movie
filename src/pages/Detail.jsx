@@ -5,15 +5,7 @@ import VideoList from "../components/VideosComponent/VideoList";
 const Detail = () => {
   return (
     <div>
-      <div
-        className="w-full h-[100vh] mb-5"
-        style={{
-          background:
-            "url(../../../../public/images/movie/bg-the-black-demon.jpeg)",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+      <div className="w-full bg-[url(../../../../public/images/movie/bg-the-black-demon.jpeg)] bg-cover bg-no-repeat bg-center mb-5">
         <div className="w-full h-full bg-[#000000af]">
           <DetailContent />
         </div>
