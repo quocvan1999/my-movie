@@ -73,11 +73,9 @@ const Caroucel = () => {
 
   return (
     <div
-      className="w-full h-[100vh]"
+      className="w-full h-[100vh] bg-cover bg-no-repeat bg-center"
       style={{
         background: "url(../../../../../public/images/ott1.webp)",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
       }}
     >
       <div
@@ -87,10 +85,10 @@ const Caroucel = () => {
         }}
       >
         <div className="h-full max-w-[1280px] mx-auto py-[100px] flex items-center">
-          <div className="xl:w-[50%] lg:w-[60%] h-full flex flex-col justify-center">
+          <div className="w-full h-full px-3 flex flex-col justify-center">
             <CaroucelContent />
           </div>
-          <div className="xl:w-[50%] lg:w-[40%] h-full text-white flex items-center relative ">
+          <div className="d-none h-full text-white flex items-center relative ">
             <div className="bg-[#0c0c0cd0] h-[350px] xl:w-[65%] lg:w-full p-7 pe-0 flex flex-col justify-between absolute right-0 rounded-lg ">
               <Carousel
                 additionalTransfrom={0}

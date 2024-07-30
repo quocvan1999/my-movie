@@ -26,7 +26,7 @@ const Header = () => {
         isScrolled ? "lg:bg-[#151515]" : ""
       }`}
     >
-      <div className="max-w-[1280px] mx-auto block lg:flex justify-between items-center lg:py-3">
+      <div className="max-w-[1280px] mx-auto block lg:flex justify-between items-center lg:py-3 lg:px-3">
         {/* Logo */}
         <div className="flex items-center justify-between px-3 py-4 lg:px-0 lg:py-0 bg-[#151515] lg:bg-transparent">
           {/* Logo */}
