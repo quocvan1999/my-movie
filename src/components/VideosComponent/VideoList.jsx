@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -24,6 +24,21 @@ const responsive = {
 };
 
 const VideoList = ({ title, type, all = true }) => {
+  const [sizeItem, setSizeItem] = useState(0);
+
+  useEffect(() => {
+    const size = window.innerWidth;
+    if (size >= 1000) {
+      setSizeItem(5);
+    } else if (size >= 768) {
+      setSizeItem(4);
+    } else if (size >= 480) {
+      setSizeItem(3);
+    } else {
+      setSizeItem(2);
+    }
+  }, []);
+
   return (
     <div className="max-w-[1280px] mx-auto py-2">
       <div className="flex justify-between px-3">
@@ -55,21 +70,18 @@ const VideoList = ({ title, type, all = true }) => {
           </Carousel>
         ) : (
           <div className="flex flex-wrap w-full">
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
-            <VideoItem width="Calc(100%/5)" />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
+            <VideoItem width={`Calc(100%/${sizeItem})`} />
           </div>
         )}
       </div>

@@ -7,15 +7,7 @@ const VideoItem = ({ width = "" }) => {
       className="text-white h-[350px] px-3 py-6 rounded-lg hover:scale-110 hover:z-50 transition-all ease-in-out duration-500 group"
       style={{ width: `${width}` }}
     >
-      <div
-        className="w-full h-full rounded-lg cursor-pointer"
-        style={{
-          background:
-            "url(../../../../../public/images/movie/bg-little-mermaid.jpg)",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+      <div className="w-full h-full rounded-lg cursor-pointer bg-[url(../../../../../public/images/movie/bg-little-mermaid.jpg)] bg-cover bg-no-repeat">
         <div className="w-full h-full flex flex-col justify-between bg-[#0000007e] transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 p-3">
           <div className="text-white">
             <h1 className="text-2xl font-semibold">The Hunter</h1>

@@ -3,12 +3,7 @@ import React from "react";
 const CaroucelContent = () => {
   return (
     <div>
-      <h1
-        className="text-6xl font-extrabold text-transparent bg-clip-text bg-center bg-cover "
-        style={{
-          backgroundImage: "url(../../../../../public/images/texture.jpg)",
-        }}
-      >
+      <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-center bg-cover bg-[url(../../../../../public/images/texture.jpg)]">
         The Hunter
       </h1>
       <p className="text-gray-300 mt-3 mb-8">

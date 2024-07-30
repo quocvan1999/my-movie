@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./caroucel.css";
 
 const CaroucelItem = ({ item }) => {
   const { img, title } = item;

@@ -11,8 +11,8 @@ const ModalTrailer = ({ modalIsOpen, toggleModal }) => {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      width: "90%", // Đảm bảo modal chiếm 90% chiều rộng của màn hình
-      maxWidth: "800px", // Giới hạn tối đa chiều rộng
+      width: "90%",
+      maxWidth: "800px",
       height: "auto",
       padding: "0",
     },

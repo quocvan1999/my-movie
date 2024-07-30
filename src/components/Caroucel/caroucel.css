@@ -1,8 +1,0 @@
-.react-multi-carousel-item--active.caroucel-banner-custome>a {
-    padding: 0 !important;
-}
-
-.react-multi-carousel-item--active.caroucel-banner-custome>a>div>span {
-    transition: all 0.5s ease-in-out;
-    background: transparent !important;
-}
