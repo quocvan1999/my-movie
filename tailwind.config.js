@@ -9,6 +9,9 @@ export default {
         lg: "1024px",
         xl: "1280px",
       },
+      backgroundImage: {
+        "custom-radial": "radial-gradient(circle, transparent, black)",
+      },
     },
   },
   plugins: [],

@@ -17,7 +17,7 @@ const CaroucelContent = () => {
         quod reprehenderit, quia officiis corrupti voluptatum cum dolores
         necessitatibus.
       </p>
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col lg:flex-row lg:items-end lg:gap-6">
         <div className="flex items-center">
           <i className="bx bxs-star text-2xl text-yellow-400"></i>
           <i className="bx bxs-star text-2xl text-yellow-400"></i>
@@ -26,15 +26,17 @@ const CaroucelContent = () => {
           <i className="bx bxs-star text-2xl text-yellow-400"></i>
           <span className="font-medium text-2xl text-white ml-3">5.0</span>
         </div>
-        <p className="text-[14px] text-white">1hr: 58mins</p>
-        <p className="text-[14px] text-white">
-          <span className="text-[#E40813]">Genres: </span>Drama
-        </p>
-        <p className="text-[14px] text-white">
-          <span className="text-[#E40813]">Starring: </span>Olivia Foster
-        </p>
+        <div className="flex gap-5">
+          <p className="text-[14px] text-white">1hr: 58mins</p>
+          <p className="text-[14px] text-white">
+            <span className="text-[#E40813]">Genres: </span>Drama
+          </p>
+          <p className="text-[14px] text-white">
+            <span className="text-[#E40813]">Starring: </span>Olivia Foster
+          </p>
+        </div>
       </div>
-      <div className="mt-14">
+      <div className="mt-3">
         <button className="bg-[#E40813] text-white uppercase text-[14px] leading-[21px] px-5 py-3 rounded-lg font-semibold flex items-center hover:bg-[#b82b32] transition-all ease-in-out duration-500">
           stream now <i className="bx bx-play text-[24px]"></i>
         </button>

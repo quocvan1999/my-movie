@@ -72,24 +72,14 @@ const Caroucel = () => {
   ];
 
   return (
-    <div
-      className="w-full h-[100vh] bg-cover bg-no-repeat bg-center"
-      style={{
-        background: "url(../../../../../public/images/ott1.webp)",
-      }}
-    >
-      <div
-        className="w-full h-full"
-        style={{
-          background: "radial-gradient(circle, transparent, black)",
-        }}
-      >
-        <div className="h-full max-w-[1280px] mx-auto py-[100px] flex items-center">
-          <div className="w-full h-full px-3 flex flex-col justify-center">
+    <div className="w-full h-[100vh] bg-[url(../../../../../public/images/ott1.webp)] bg-cover bg-no-repeat bg-center">
+      <div className="w-full h-full bg-custom-radial ">
+        <div className="h-full max-w-[1280px] mx-auto py-[100px] md:flex md:items-center">
+          <div className="w-full md:w-[50%] lg:w-[60%] h-full px-3 flex flex-col justify-center">
             <CaroucelContent />
           </div>
-          <div className="d-none h-full text-white flex items-center relative ">
-            <div className="bg-[#0c0c0cd0] h-[350px] xl:w-[65%] lg:w-full p-7 pe-0 flex flex-col justify-between absolute right-0 rounded-lg ">
+          <div className="d-none md:w-[50%] lg:w-[40%] h-full text-white md:flex md:items-center relative ">
+            <div className="bg-[#0c0c0cd0] h-[350px] md:w-full lg:w-[375px] p-7 pe-0 flex flex-col justify-between absolute right-0 rounded-lg ">
               <Carousel
                 additionalTransfrom={0}
                 arrows={false}
