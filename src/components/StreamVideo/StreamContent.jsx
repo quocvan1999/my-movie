@@ -2,13 +2,13 @@ import React from "react";
 
 const StreamContent = () => {
   return (
-    <div className="flex">
-      <div className="w-[50%]">
+    <div className="flex flex-col lg:flex-row px-3">
+      <div className="w-full lg:w-[50%]">
         <div className="flex items-end gap-2">
           <h1 className="text-3xl">The Hunter</h1>
           <p className="italic">(The hunter)</p>
         </div>
-        <div className="flex gap-3 text-[14px] leading-[14px] text-white items-center font-medium mt-2">
+        <div className="flex flex-wrap gap-3 text-[14px] leading-[14px] text-white items-center font-medium mt-2">
           <div className="px-2 py-1 rounded-md bg-[#E40813]">FHD</div>
           <div className="px-2 py-1 rounded-md bg-[#E40813]">1hr:58min</div>
           <div className="px-2 py-1 rounded-md bg-[#E40813]">2024</div>
@@ -30,7 +30,7 @@ const StreamContent = () => {
           makes a thrilling comeback.
         </p>
       </div>
-      <div className="w-[50%] text-[14px]">
+      <div className="w-full lg:w-[50%] text-[14px] mt-5">
         <p>
           <span className="font-bold">Thể loại:</span> Viễn Tưởng, Thần Thoại,
           Phiêu Lưu

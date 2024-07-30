@@ -5,8 +5,8 @@ import EpisodeList from "../components/StreamVideo/EpisodeList";
 
 const StreamVideo = () => {
   return (
-    <div className="w-full mt-[100px] text-white">
-      <div className="max-w-[1280px] lg:px-3 mx-auto">
+    <div className="w-full text-white">
+      <div className="max-w-[1280px] mx-auto">
         <div className="mb-10">
           <VideoContainer />
         </div>
