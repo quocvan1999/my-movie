@@ -12,5 +12,10 @@
 @layer utilities {
     .active {
         color: #E40813;
+        font-weight: 700;
+    }
+
+    .d-none {
+        display: none;
     }
 }

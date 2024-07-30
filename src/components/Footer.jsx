@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="bg-[#141314] w-full">
-      <div className="max-w-[1280px] mx-auto flex items-start justify-between text-white py-[70px]">
+      <div className="max-w-[1280px] lg:px-3 mx-auto flex items-start justify-between text-white py-[70px]">
         <div className="w-[calc(100%/4)]">
           <NavLink to="/">
             <img
@@ -139,7 +139,7 @@ const Footer = () => {
           </button>
         </div>
       </div>
-      <div className="max-w-[1280px] mx-auto text-white flex border-t border-[#272626] pt-14 py-[70px]">
+      <div className="max-w-[1280px] lg:px-3 mx-auto text-white flex border-t border-[#272626] pt-14 py-[70px]">
         <div className="w-[70%]">
           <div className="flex gap-7">
             <a

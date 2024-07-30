@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div>
       <Caroucel />
-      <div className="mt-10">
+      <div className="mt-10 lg:mx-3">
         <VideoList title="Phim mới" type="caroucel" />
       </div>
     </div>

@@ -87,11 +87,11 @@ const Caroucel = () => {
         }}
       >
         <div className="h-full max-w-[1280px] mx-auto py-[100px] flex items-center">
-          <div className="w-[50%] h-full flex flex-col justify-center">
+          <div className="xl:w-[50%] lg:w-[60%] h-full flex flex-col justify-center">
             <CaroucelContent />
           </div>
-          <div className="w-[50%] h-full text-white flex items-center relative ">
-            <div className="bg-[#0c0c0cd0] h-[350px] w-[65%] p-7 pe-0 flex flex-col justify-between absolute right-0 rounded-lg ">
+          <div className="xl:w-[50%] lg:w-[40%] h-full text-white flex items-center relative ">
+            <div className="bg-[#0c0c0cd0] h-[350px] xl:w-[65%] lg:w-full p-7 pe-0 flex flex-col justify-between absolute right-0 rounded-lg ">
               <Carousel
                 additionalTransfrom={0}
                 arrows={false}
