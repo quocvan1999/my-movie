@@ -1,31 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+
+import { getNewMovieAsync } from "../../redux/apiRequests/apiRequests";
 
 import CustomButtonGroupAsArrows from "./CustomButtonGroupAsArrows";
 import CaroucelItem from "./CaroucelItem";
 import CaroucelContent from "./CaroucelContent";
-
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 1024 },
-    items: 1,
-  },
-  desktop: {
-    breakpoint: { max: 1024, min: 768 },
-    items: 1,
-  },
-  tablet: {
-    breakpoint: { max: 768, min: 464 },
-    items: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
+import { useDispatch, useSelector } from "react-redux";
 
 const Caroucel = () => {
+  const dispatch = useDispatch();
+  const { newMovie } = useSelector((state) => state.newMovieReducer);
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1024 },
+      items: 1,
+    },
+    desktop: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 1,
+    },
+    tablet: {
+      breakpoint: { max: 768, min: 464 },
+      items: 1,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+
   const items = [
     { id: 1, title: "Slide 1", img: "../../../public/images/movie/65.jpg" },
     { id: 2, title: "Slide 2", img: "../../../public/images/movie/bg-65.jpeg" },
@@ -70,6 +76,15 @@ const Caroucel = () => {
       img: "../../../public/images/movie/the-tank.jpeg",
     },
   ];
+
+  const getNewMovie = async () => {
+    const action = getNewMovieAsync;
+    dispatch(action);
+  };
+
+  useEffect(() => {
+    getNewMovie();
+  }, []);
 
   return (
     <div className="w-full h-[100vh] lg:mt-0 bg-[url(../../../../../public/images/ott1.webp)] bg-cover bg-no-repeat bg-center">
