@@ -22,5 +22,6 @@ const newMovieReducer = createSlice({
   },
 });
 
-export const {} = newMovieReducer.actions;
+export const { setnewMovieStart, setnewMovieSuccess, setnewMovieError } =
+  newMovieReducer.actions;
 export default newMovieReducer.reducer;
