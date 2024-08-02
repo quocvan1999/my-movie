@@ -1,16 +1,15 @@
 import React from "react";
+import { truncateText, formatString } from "../../assets/js/method/method";
 
-const CaroucelContent = () => {
+const CaroucelContent = ({ detailMovie }) => {
+  const { name, content, time, actor, director } = detailMovie;
   return (
     <div>
       <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-center bg-cover bg-[url(../../../../../public/images/texture.jpg)]">
-        The Hunter
+        {name}
       </h1>
       <p className="text-gray-300 mt-3 mb-8">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam quos
-        odio maxime voluptas corporis commodi dicta expedita numquam aliquam
-        quod reprehenderit, quia officiis corrupti voluptatum cum dolores
-        necessitatibus.
+        {content && truncateText(content, 250)}
       </p>
       <div className="flex flex-col lg:flex-row lg:items-end lg:gap-6">
         <div className="flex items-center">
@@ -22,12 +21,22 @@ const CaroucelContent = () => {
           <span className="font-medium text-2xl text-white ml-3">5.0</span>
         </div>
         <div className="flex gap-5">
-          <p className="text-[14px] text-white">1hr: 58mins</p>
+          <p className="text-[14px] text-white">{time}</p>
           <p className="text-[14px] text-white">
-            <span className="text-[#E40813]">Genres: </span>Drama
+            <span className="text-[#E40813]">
+              Genres:{" "}
+              <span className="text-white">
+                {actor && truncateText(formatString(actor), 20)}
+              </span>
+            </span>
           </p>
           <p className="text-[14px] text-white">
-            <span className="text-[#E40813]">Starring: </span>Olivia Foster
+            <span className="text-[#E40813]">
+              Starring:{" "}
+              <span className="text-white">
+                {director && truncateText(formatString(director), 20)}
+              </span>
+            </span>
           </p>
         </div>
       </div>

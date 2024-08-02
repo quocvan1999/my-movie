@@ -2,16 +2,21 @@ import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-import { getNewMovieAsync } from "../../redux/apiRequests/apiRequests";
+import {
+  getNewMovieAsync,
+  getDetailMovieAsync,
+} from "../../redux/apiRequests/apiRequests";
 
 import CustomButtonGroupAsArrows from "./CustomButtonGroupAsArrows";
 import CaroucelItem from "./CaroucelItem";
 import CaroucelContent from "./CaroucelContent";
 import { useDispatch, useSelector } from "react-redux";
+import { current } from "@reduxjs/toolkit";
 
 const Caroucel = () => {
   const dispatch = useDispatch();
   const { newMovie } = useSelector((state) => state.newMovieReducer);
+  const { detailMovie } = useSelector((state) => state.detailMovieReducer);
 
   const responsive = {
     superLargeDesktop: {
@@ -32,53 +37,26 @@ const Caroucel = () => {
     },
   };
 
-  const items = [
-    { id: 1, title: "Slide 1", img: "../../../public/images/movie/65.jpg" },
-    { id: 2, title: "Slide 2", img: "../../../public/images/movie/bg-65.jpeg" },
-    {
-      id: 3,
-      title: "Slide 3",
-      img: "../../../public/images/movie/bg-little-mermaid.jpg",
-    },
-    {
-      id: 4,
-      title: "Slide 4",
-      img: "../../../public/images/movie/bg-the-black-demon.jpeg",
-    },
-    {
-      id: 5,
-      title: "Slide 5",
-      img: "../../../public/images/movie/bg-the-covenant.jpeg",
-    },
-    {
-      id: 6,
-      title: "Slide 5",
-      img: "../../../public/images/movie/bg-the-tank.jpeg",
-    },
-    {
-      id: 7,
-      title: "Slide 5",
-      img: "../../../public/images/movie/the-black-demon.jpg",
-    },
-    {
-      id: 8,
-      title: "Slide 5",
-      img: "../../../public/images/movie/the-covenant.jpg",
-    },
-    {
-      id: 9,
-      title: "Slide 5",
-      img: "../../../public/images/movie/the-little-mermaid.jpeg",
-    },
-    {
-      id: 10,
-      title: "Slide 5",
-      img: "../../../public/images/movie/the-tank.jpeg",
-    },
-  ];
+  const handleAfterChange = (previousSlide, { currentSlide }) => {
+    let index = 0;
+    currentSlide - 2 > newMovie.length - 1
+      ? (index = 0)
+      : currentSlide - 2 === -1
+      ? (index = newMovie.length - 1)
+      : currentSlide - 2 === -2
+      ? (index = newMovie.length - 2)
+      : (index = currentSlide - 2);
+
+    getDetailMovie(newMovie[index].slug);
+  };
 
   const getNewMovie = async () => {
     const action = getNewMovieAsync;
+    dispatch(action);
+  };
+
+  const getDetailMovie = async (id) => {
+    const action = getDetailMovieAsync(id);
     dispatch(action);
   };
 
@@ -86,16 +64,29 @@ const Caroucel = () => {
     getNewMovie();
   }, []);
 
+  useEffect(() => {
+    if (newMovie.length > 0) {
+      const movieId = newMovie[0].slug;
+      getDetailMovie(movieId);
+    }
+  }, [newMovie]);
+
   return (
-    <div className="w-full h-[100vh] lg:mt-0 bg-[url(../../../../../public/images/ott1.webp)] bg-cover bg-no-repeat bg-center">
+    <div
+      className={`w-full h-[100vh] lg:mt-0 bg-cover bg-no-repeat bg-center`}
+      style={{
+        background: `url(${detailMovie && detailMovie.thumb_url})`,
+      }}
+    >
       <div className="w-full h-full bg-custom-radial ">
         <div className="h-full max-w-[1280px] mx-auto py-[100px] md:flex md:items-center">
           <div className="w-full md:w-[50%] lg:w-[60%] h-full px-3 flex flex-col justify-center">
-            <CaroucelContent />
+            <CaroucelContent detailMovie={detailMovie} />
           </div>
           <div className="d-none md:w-[50%] lg:w-[40%] h-full text-white md:flex md:items-center relative ">
             <div className="bg-[#0c0c0cd0] h-[350px] md:w-full lg:w-[375px] p-7 pe-0 flex flex-col justify-between absolute right-0 rounded-lg ">
               <Carousel
+                afterChange={handleAfterChange}
                 additionalTransfrom={0}
                 arrows={false}
                 autoPlay={false}
@@ -125,9 +116,10 @@ const Caroucel = () => {
                 slidesToSlide={1}
                 swipeable
               >
-                {items.map((item, index) => (
-                  <CaroucelItem key={index} item={item} />
-                ))}
+                {newMovie &&
+                  newMovie.map((item, index) => (
+                    <CaroucelItem key={index} item={item} />
+                  ))}
               </Carousel>
             </div>
           </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const CaroucelItem = ({ item }) => {
-  const { img, title } = item;
+  const { poster_url } = item;
 
   return (
     <NavLink
@@ -12,7 +12,7 @@ const CaroucelItem = ({ item }) => {
       <div
         className="w-full h-full bg-blue-500 rounded-lg relative"
         style={{
-          background: `url(${img})`,
+          background: `url(${poster_url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
