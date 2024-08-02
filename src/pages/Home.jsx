@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <Caroucel />
       <div className="mt-10 lg:mx-3">
-        <VideoList title="Phim mới" type="caroucel" />
+        <VideoList title="Phim lẽ" type="caroucel" />
       </div>
     </div>
   );

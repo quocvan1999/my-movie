@@ -2,11 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const CaroucelItem = ({ item }) => {
-  const { poster_url } = item;
+  const { poster_url, slug } = item;
 
   return (
     <NavLink
-      to="/detail/10"
+      to={`/detail/${slug}`}
       className="h-full p-5 transition-all duration-500 block"
     >
       <div

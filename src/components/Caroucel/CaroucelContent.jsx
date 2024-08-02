@@ -26,7 +26,7 @@ const CaroucelContent = ({ detailMovie }) => {
             <span className="text-[#E40813]">
               Genres:{" "}
               <span className="text-white">
-                {actor && truncateText(formatString(actor), 20)}
+                {actor && truncateText(formatString(actor, 2, ""), 20)}
               </span>
             </span>
           </p>
@@ -34,7 +34,7 @@ const CaroucelContent = ({ detailMovie }) => {
             <span className="text-[#E40813]">
               Starring:{" "}
               <span className="text-white">
-                {director && truncateText(formatString(director), 20)}
+                {director && truncateText(formatString(director, 2, ""), 20)}
               </span>
             </span>
           </p>

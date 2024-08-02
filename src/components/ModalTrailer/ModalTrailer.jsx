@@ -1,8 +1,9 @@
 import React from "react";
 import Modal from "react-modal";
 import YouTube from "react-youtube";
+import { getYouTubeVideoId } from "../../assets/js/method/method";
 
-const ModalTrailer = ({ modalIsOpen, toggleModal }) => {
+const ModalTrailer = ({ modalIsOpen, toggleModal, trailerKey }) => {
   const customStyles = {
     content: {
       top: "50%",
@@ -32,7 +33,10 @@ const ModalTrailer = ({ modalIsOpen, toggleModal }) => {
       contentLabel="Example Modal"
     >
       <div className="video-responsive">
-        <YouTube videoId="inIVdZSFfc0" opts={opts} />
+        <YouTube
+          videoId={trailerKey && getYouTubeVideoId(trailerKey)}
+          opts={opts}
+        />
       </div>
     </Modal>
   );
