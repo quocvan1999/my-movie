@@ -32,9 +32,9 @@ const EpisodeList = () => {
       {detailMoviePending === false && detailMovie
         ? detailMovie.episodes.map((server, indexServer) => {
             return (
-              <div key={indexServer}>
-                <h1>{server.server_name}</h1>
-                <Carousel className="mt-2" responsive={responsive}>
+              <div key={indexServer} className="w-full">
+                <h1>Server: {server.server_name}</h1>
+                <Carousel className="mt-2 w-full" responsive={responsive}>
                   {server.server_data.map((episode, index) => {
                     return <EpisodeItem key={index} episode={episode} />;
                   })}

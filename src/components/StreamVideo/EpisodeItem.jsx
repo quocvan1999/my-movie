@@ -14,16 +14,20 @@ const EpisodeItem = ({ episode }) => {
   return (
     <>
       {videoPlaying ? (
-        <button
-          onClick={() => {
-            handleChangeEpisode(episode);
-          }}
-          className={`text-white font-medium mx-2 text-center py-[6px] px-6 rounded-lg cursor-pointer ${
-            videoPlaying.slug === episode.slug ? "bg-[#E40813]" : "bg-[#202020]"
-          }`}
-        >
-          {episode.name}
-        </button>
+        <div className="pe-2">
+          <button
+            onClick={() => {
+              handleChangeEpisode(episode);
+            }}
+            className={`text-white block w-full font-medium text-center py-[6px] rounded-lg cursor-pointer ${
+              videoPlaying.slug === episode.slug
+                ? "bg-[#E40813]"
+                : "bg-[#202020]"
+            }`}
+          >
+            {episode.name}
+          </button>
+        </div>
       ) : (
         ""
       )}

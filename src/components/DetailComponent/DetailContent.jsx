@@ -41,7 +41,7 @@ const DetailContent = () => {
                     ({detailMovie.movie.origin_name})
                   </p>
                 </div>
-                <div className="flex gap-3 text-[14px] leading-[14px] text-white items-center font-medium mt-2">
+                <div className="flex flex-wrap gap-3 text-[14px] leading-[14px] text-white items-center font-medium mt-2">
                   <div className="px-2 py-1 rounded-md bg-[#E40813]">
                     {detailMovie.movie.quality}
                   </div>
