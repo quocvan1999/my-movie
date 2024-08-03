@@ -82,15 +82,19 @@ const Caroucel = () => {
         <Loading />
       ) : (
         <div
-          className={`w-full h-[100vh] lg:mt-0 bg-cover bg-no-repeat bg-center`}
+          className="w-full h-[100vh] lg:mt-0 bg-cover bg-no-repeat bg-center"
           style={{
-            background: `url(${detailMovie && detailMovie.thumb_url})`,
+            background: `url(${
+              detailMovie.movie && detailMovie.movie.thumb_url
+            })`,
           }}
         >
           <div className="w-full h-full bg-custom-radial ">
             <div className="h-full max-w-[1280px] mx-auto py-[100px] md:flex md:items-center">
               <div className="w-full md:w-[50%] lg:w-[60%] h-full px-3 flex flex-col justify-center">
-                <CaroucelContent detailMovie={detailMovie} />
+                {detailMovie.movie && (
+                  <CaroucelContent detailMovie={detailMovie.movie} />
+                )}
               </div>
               <div className="d-none md:w-[50%] lg:w-[40%] h-full text-white md:flex md:items-center relative ">
                 <div className="bg-[#0c0c0cd0] h-[350px] md:w-full lg:w-[375px] p-7 pe-0 flex flex-col justify-between absolute right-0 rounded-lg ">

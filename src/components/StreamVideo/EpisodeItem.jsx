@@ -1,10 +1,10 @@
 import React from "react";
 
-const EpisodeItem = () => {
+const EpisodeItem = ({ item }) => {
   return (
-    <div className="bg-[#202020] text-white font-medium mx-2 text-center py-[6px] rounded-lg cursor-pointer">
-      Tập 1
-    </div>
+    <button className="bg-[#202020] text-white font-medium mx-2 text-center py-[6px] px-6 rounded-lg cursor-pointer">
+      {item.name}
+    </button>
   );
 };
 

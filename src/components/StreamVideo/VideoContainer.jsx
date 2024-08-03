@@ -1,10 +1,10 @@
 import React from "react";
 
-const VideoContainer = () => {
+const VideoContainer = ({ isVideoPlaying }) => {
   return (
     <iframe
-      className="video-responsive-container w-full h-[300px] md:h-[500px] lg:mt-[100px]"
-      src="https://player.phimapi.com/player/?url=https://s3.phim1280.tv/20240717/zxXfSDOk/index.m3u8"
+      className="video-responsive-container w-full h-full lg:mt-[100px]"
+      src={isVideoPlaying ? isVideoPlaying.link_embed : ""}
       frameborder="0"
       allowfullscreen
     ></iframe>

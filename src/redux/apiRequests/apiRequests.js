@@ -29,7 +29,7 @@ export const getDetailMovieAsync = (id) => {
     dispatch(setDetailMovieStart());
     try {
       const res = await axios.get(`https://phimapi.com/phim/${id}`);
-      dispatch(setDetailMovieSuccess(res.data.movie));
+      dispatch(setDetailMovieSuccess(res.data));
     } catch (e) {
       dispatch(setDetailMovieError(e.message));
     }

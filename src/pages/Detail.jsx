@@ -30,11 +30,11 @@ const Detail = () => {
         <div
           className="w-full bg-cover bg-no-repeat bg-center mb-5"
           style={{
-            background: `url(${detailMovie && detailMovie.thumb_url})`,
+            background: `url(${detailMovie && detailMovie.movie.thumb_url})`,
           }}
         >
           <div className="w-full h-full bg-[#000000af]">
-            <DetailContent detailMovie={detailMovie} />
+            <DetailContent detailMovie={detailMovie.movie} />
           </div>
         </div>
       )}

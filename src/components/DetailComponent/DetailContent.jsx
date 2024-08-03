@@ -20,6 +20,7 @@ const DetailContent = ({ detailMovie }) => {
     director,
     content,
     trailer_url,
+    slug,
   } = detailMovie;
 
   const toggleModal = () => {
@@ -89,7 +90,7 @@ const DetailContent = ({ detailMovie }) => {
                 </span>
               </div>
               <NavLink
-                to="/streamvideo/10"
+                to={`/streamvideo/${slug}`}
                 className="flex items-center group cursor-pointer"
               >
                 <div className="w-9 h-9 me-1 border flex items-center justify-center text-[#E40813] rounded-full cursor-pointer transition-all duration-500 ease-in-out hover:bg-[#E40813] hover:text-white">
