@@ -5,6 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 import VideoItem from "./VideoItem";
 import { useSelector } from "react-redux";
 import Loading from "../Loading";
+import ListPage from "../PageList/ListPage";
 
 const VideoList = ({ title = "", type = "", all = true }) => {
   const [sizeItem, setSizeItem] = useState(0);
@@ -59,7 +60,10 @@ const VideoList = ({ title = "", type = "", all = true }) => {
           <div>
             {type === "caroucel" ? (
               <Carousel responsive={responsive}>
-                <VideoItem />
+                {resultMovie.data &&
+                  resultMovie.data.items.map((item, index) => (
+                    <VideoItem key={index} item={item} />
+                  ))}
               </Carousel>
             ) : (
               <div className="flex flex-wrap w-full">
@@ -71,6 +75,13 @@ const VideoList = ({ title = "", type = "", all = true }) => {
                       width={`Calc(100%/${sizeItem})`}
                     />
                   ))}
+              </div>
+            )}
+          </div>
+          <div>
+            {!all && (
+              <div className="w-full flex justify-end">
+                <ListPage />
               </div>
             )}
           </div>
