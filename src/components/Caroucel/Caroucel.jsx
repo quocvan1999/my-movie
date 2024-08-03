@@ -84,7 +84,7 @@ const Caroucel = () => {
         <div>
           {detailMovie.movie ? (
             <div
-              className={`w-full h-[100vh] lg:mt-0 bg-style-custom`}
+              className={`w-full h-[100vh] lg:mt-0 bg-style-custom transition-all duration-500 ease-in-out`}
               style={{
                 background: `url(${detailMovie.movie.thumb_url})`,
               }}

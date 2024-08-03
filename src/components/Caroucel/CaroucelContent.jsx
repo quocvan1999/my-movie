@@ -11,7 +11,7 @@ const CaroucelContent = () => {
   return (
     <>
       {detailMoviePending == false && detailMovie ? (
-        <div>
+        <div className="transition-all duration-500 ease-in-out">
           <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-center bg-cover bg-[url(../../../../../public/images/texture.jpg)]">
             {detailMovie.movie.name}
           </h1>
