@@ -4,20 +4,20 @@ const detailMovieReducer = createSlice({
   name: "detailMovieReducer",
   initialState: {
     detailMovie: [],
-    pending: false,
-    error: false,
+    detailMoviePending: false,
+    detailMovieError: false,
   },
   reducers: {
     setDetailMovieStart: (state) => {
-      state.pending = true;
+      state.detailMoviePending = true;
     },
     setDetailMovieError: (state) => {
-      state.pending = false;
-      state.error = true;
+      state.detailMoviePending = false;
+      state.detailMovieError = true;
     },
     setDetailMovieSuccess: (state, action) => {
       state.detailMovie = action.payload;
-      state.pending = false;
+      state.detailMoviePending = false;
     },
   },
 });

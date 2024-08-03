@@ -4,20 +4,20 @@ const newMovieReducer = createSlice({
   name: "newMovieReducer",
   initialState: {
     newMovie: [],
-    pending: false,
-    error: false,
+    newMoviePending: false,
+    newMovieError: false,
   },
   reducers: {
     setnewMovieStart: (state) => {
-      state.pending = true;
+      state.newMoviePending = true;
     },
     setnewMovieError: (state) => {
-      state.pending = false;
-      state.error = true;
+      state.newMoviePending = false;
+      state.newMovieError = true;
     },
     setnewMovieSuccess: (state, action) => {
+      state.newMoviePending = false;
       state.newMovie = action.payload;
-      state.pending = false;
     },
   },
 });
