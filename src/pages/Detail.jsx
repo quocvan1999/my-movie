@@ -32,7 +32,7 @@ const Detail = () => {
           }}
         >
           <div className="w-full h-full bg-[#000000af]">
-            <DetailContent detailMovie={detailMovie.movie} />
+            <DetailContent />
           </div>
         </div>
       ) : (
