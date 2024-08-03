@@ -43,7 +43,7 @@ const DetailContent = ({ detailMovie }) => {
             />
           </div>
           <div className="p-3 w-full">
-            <div className="flex items-end gap-2">
+            <div className="flex flex-col md:flex-row md:items-end md:gap-3">
               <h1 className="text-3xl text-white font-medium">{name}</h1>
               <p className="text-white italic text-[14px] leading-[24px]">
                 ({origin_name && origin_name})
