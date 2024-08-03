@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetailMovieAsync } from "../redux/apiRequests/apiRequests";
+import { setVideoPlaying } from "../redux/reducers/videoPlayingReducer";
 
 import StreamContent from "../components/StreamVideo/StreamContent";
 import VideoContainer from "../components/StreamVideo/VideoContainer";
@@ -15,15 +16,22 @@ const StreamVideo = () => {
   const { detailMovie, detailMoviePending } = useSelector(
     (state) => state.detailMovieReducer
   );
+  const { videoPlaying } = useSelector((state) => state.videoPlayingReducer);
 
   const getDetailMovie = async (id) => {
     const action = getDetailMovieAsync(id);
     dispatch(action);
   };
 
+  const setVideoPlaying = (video) => {
+    dispatch(setVideoPlaying(video));
+  };
+
   useEffect(() => {
     getDetailMovie(id);
   }, [id]);
+
+  useEffect(() => {}, [detailMovie]);
 
   return (
     <>
