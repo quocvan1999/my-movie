@@ -79,9 +79,9 @@ const VideoList = ({ title = "", type = "", all = true }) => {
               </div>
             )}
           </div>
-          <div>
+          <div className="px-3">
             {!all && (
-              <div className="w-full flex justify-end">
+              <div className="w-full flex justify-between items-center">
                 <LimitPage />
                 <ListPage />
               </div>

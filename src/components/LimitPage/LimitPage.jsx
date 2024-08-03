@@ -20,6 +20,7 @@ export const LimitPage = () => {
   };
 
   useEffect(() => {
+    setLimitPage([]);
     renderLimitItem(100);
   }, []);
 
@@ -30,7 +31,7 @@ export const LimitPage = () => {
           onChange={(e) => {
             handleChangeLimitPage(e.target.value);
           }}
-          className="bg-[#202020] text-white text-sm rounded-lg inline-block p-2 cursor-pointer"
+          className="bg-[#202020] text-white text-sm rounded-md inline-block p-2 cursor-pointer"
           value={limit}
         >
           {limitPage.map((limit, index) => (
