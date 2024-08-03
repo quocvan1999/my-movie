@@ -23,11 +23,11 @@ function App() {
               <Route path=":id" element={<StreamVideo />} />
             </Route>
             <Route path="viewresult">
-              <Route path="viewall" element={<ViewResult />} />
-              <Route path="phimbo" element={<ViewResult />} />
-              <Route path="phimle" element={<ViewResult />} />
-              <Route path="tvshow" element={<ViewResult />} />
-              <Route path="hoathinh" element={<ViewResult />} />
+              <Route path=":keyUrl" element={<ViewResult />} />
+              <Route path=":keyUrl" element={<ViewResult />} />
+              <Route path=":keyUrl" element={<ViewResult />} />
+              <Route path=":keyUrl" element={<ViewResult />} />
+              <Route path=":keyUrl" element={<ViewResult />} />
             </Route>
           </Route>
         </Routes>

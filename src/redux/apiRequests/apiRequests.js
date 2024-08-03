@@ -1,4 +1,4 @@
-import { data } from "autoprefixer";
+import axios from "axios";
 import {
   setnewMovieStart,
   setnewMovieSuccess,
@@ -9,8 +9,11 @@ import {
   setDetailMovieSuccess,
   setDetailMovieError,
 } from "../reducers/detailMovieReducer";
-
-import axios from "axios";
+import {
+  setResultMovieStart,
+  setResultMovieSuccess,
+  setResultMovieError,
+} from "../reducers/resultMovieReducel";
 
 export const getNewMovieAsync = async (dispatch) => {
   dispatch(setnewMovieStart());
@@ -32,6 +35,20 @@ export const getDetailMovieAsync = (id) => {
       dispatch(setDetailMovieSuccess(res.data));
     } catch (e) {
       dispatch(setDetailMovieError(e.message));
+    }
+  };
+};
+
+export const getResultMovieAsync = (keyUrl, page, limit) => {
+  return async (dispatch) => {
+    dispatch(setResultMovieStart());
+    try {
+      const res = await axios.get(
+        `https://phimapi.com/v1/api/danh-sach/${keyUrl}?page=${page}&limit=${limit}`
+      );
+      dispatch(setResultMovieSuccess(res.data));
+    } catch (e) {
+      dispatch(setResultMovieError(e.message));
     }
   };
 };
