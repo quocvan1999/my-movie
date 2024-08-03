@@ -25,7 +25,7 @@ export const LimitPage = () => {
   }, []);
 
   return (
-    <div className="w-[30%]">
+    <div>
       <form className="max-w-sm mx-auto">
         <select
           onChange={(e) => {
