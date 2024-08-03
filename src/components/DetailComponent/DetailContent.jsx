@@ -7,13 +7,14 @@ const DetailContent = ({ detailMovie }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const {
     name,
+    origin_name,
     poster_url,
     quality,
     time,
     year,
     lang,
     country,
-    episode_total,
+    episode_current,
     category,
     actor,
     director,
@@ -42,7 +43,12 @@ const DetailContent = ({ detailMovie }) => {
             />
           </div>
           <div className="p-3 w-full">
-            <h1 className="text-3xl text-white font-medium">{name}</h1>
+            <div className="flex items-end gap-2">
+              <h1 className="text-3xl text-white font-medium">{name}</h1>
+              <p className="text-white italic text-[14px] leading-[24px]">
+                ({origin_name && origin_name})
+              </p>
+            </div>
             <div className="flex gap-3 text-[14px] leading-[14px] text-white items-center font-medium mt-2">
               <div className="px-2 py-1 rounded-md bg-[#E40813]">{quality}</div>
               <div className="px-2 py-1 rounded-md bg-[#E40813]">{time}</div>
@@ -52,10 +58,10 @@ const DetailContent = ({ detailMovie }) => {
                 {country && formatString(country, 1, "name")}
               </div>
             </div>
-            <div className="text-white mt-1 text-[14px]">
+            <div className="text-white mt-4 text-[14px]">
               <p>
                 <span className="font-bold">Số tập:</span>{" "}
-                <span>{episode_total}</span>
+                <span>{episode_current}</span>
               </p>
               <p>
                 <span className="font-bold">Thể loại:</span>{" "}
