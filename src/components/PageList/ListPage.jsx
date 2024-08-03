@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import PageItem from "./PageItem";
-import { parse } from "postcss";
 
 const ListPage = () => {
   const { resultMovie, resultMoviePending } = useSelector(
@@ -27,7 +26,7 @@ const ListPage = () => {
   return (
     <>
       {resultMoviePending === false && resultMovie.data && pages ? (
-        <div className="w-[100%] flex flex-wrap justify-end gap-2">
+        <div className="w-[70%] flex flex-wrap justify-end gap-2">
           {pages &&
             pages.map((page, index) => <PageItem key={index} page={page} />)}
         </div>

@@ -6,6 +6,7 @@ import VideoItem from "./VideoItem";
 import { useSelector } from "react-redux";
 import Loading from "../Loading";
 import ListPage from "../PageList/ListPage";
+import { LimitPage } from "../LimitPage/LimitPage";
 
 const VideoList = ({ title = "", type = "", all = true }) => {
   const [sizeItem, setSizeItem] = useState(0);
@@ -81,6 +82,7 @@ const VideoList = ({ title = "", type = "", all = true }) => {
           <div>
             {!all && (
               <div className="w-full flex justify-end">
+                <LimitPage />
                 <ListPage />
               </div>
             )}
