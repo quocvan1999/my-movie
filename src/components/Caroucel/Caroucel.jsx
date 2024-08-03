@@ -78,7 +78,7 @@ const Caroucel = () => {
 
   return (
     <>
-      {newMoviePending === true && detailMoviePending === true ? (
+      {newMoviePending && detailMoviePending ? (
         <Loading />
       ) : (
         <div
