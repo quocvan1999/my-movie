@@ -38,11 +38,11 @@ const ListPage = () => {
     if (size >= 1000) {
       setSizePages(4);
     } else if (size >= 768) {
-      setSizePages(3);
+      setSizePages(2);
     } else if (size >= 480) {
-      setSizePages(2);
+      setSizePages(1);
     } else {
-      setSizePages(2);
+      setSizePages(1);
     }
   }, []);
 
