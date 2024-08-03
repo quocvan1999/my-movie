@@ -81,7 +81,7 @@ const DetailContent = () => {
                 <div className="flex items-center gap-3 mt-3">
                   <div
                     className="flex items-center group cursor-pointer"
-                    onClick={detailMovie.movie.toggleModal}
+                    onClick={toggleModal}
                   >
                     <div className="w-9 h-9 me-1 border flex items-center justify-center text-[#E40813] rounded-full cursor-pointer transition-all duration-500 ease-in-out hover:bg-[#E40813] hover:text-white">
                       <i className="bx bxs-video"></i>
