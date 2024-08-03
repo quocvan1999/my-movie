@@ -8,10 +8,10 @@ import Loading from "../components/Loading";
 
 const Detail = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
   const { detailMovie, detailMoviePending } = useSelector(
     (state) => state.detailMovieReducer
   );
-  const dispatch = useDispatch();
 
   const getDetailMovie = async (id) => {
     const action = getDetailMovieAsync(id);
@@ -24,19 +24,19 @@ const Detail = () => {
 
   return (
     <div>
-      {detailMoviePending ? (
-        <Loading />
-      ) : (
+      {detailMoviePending === false && detailMovie.movie ? (
         <div
           className="w-full bg-cover bg-no-repeat bg-center mb-5"
           style={{
-            background: `url(${detailMovie && detailMovie.movie.thumb_url})`,
+            background: `url(${detailMovie.movie.thumb_url})`,
           }}
         >
           <div className="w-full h-full bg-[#000000af]">
             <DetailContent detailMovie={detailMovie.movie} />
           </div>
         </div>
+      ) : (
+        <Loading />
       )}
     </div>
   );

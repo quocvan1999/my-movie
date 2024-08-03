@@ -31,13 +31,8 @@ const EpisodeList = ({ detailMovie }) => {
             <div key={indexServer}>
               <h1>{server.server_name}</h1>
               <Carousel className="mt-2" responsive={responsive}>
-                {server.server_data.map((item, index) => {
-                  return (
-                    <EpisodeItem
-                      key={index}
-                      item={item}
-                    />
-                  );
+                {server.server_data.map((episode, index) => {
+                  return <EpisodeItem key={index} episode={episode} />;
                 })}
               </Carousel>
             </div>
