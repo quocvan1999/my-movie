@@ -24,10 +24,6 @@ function App() {
             </Route>
             <Route path="viewresult">
               <Route path=":keyUrl" element={<ViewResult />} />
-              <Route path=":keyUrl" element={<ViewResult />} />
-              <Route path=":keyUrl" element={<ViewResult />} />
-              <Route path=":keyUrl" element={<ViewResult />} />
-              <Route path=":keyUrl" element={<ViewResult />} />
             </Route>
           </Route>
         </Routes>

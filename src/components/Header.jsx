@@ -68,7 +68,7 @@ const Header = () => {
               className={`hover:text-[#E40813] transition-all duration-500 ease-in-out text-[14px] font-medium ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
-              to="/viewresult/phim-bo"
+              to="/viewresult/phim-bo?page=1&limit=10"
             >
               Phim Bộ
             </NavLink>
@@ -76,7 +76,7 @@ const Header = () => {
               className={`hover:text-[#E40813] transition-all duration-500 ease-in-out text-[14px] font-medium ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
-              to="/viewresult/phim-le"
+              to="/viewresult/phim-le?page=1&limit=10"
             >
               Phim Lẻ
             </NavLink>
@@ -84,7 +84,7 @@ const Header = () => {
               className={`hover:text-[#E40813] transition-all duration-500 ease-in-out text-[14px] font-medium ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
-              to="/viewresult/tv-shows"
+              to="/viewresult/tv-shows?page=1&limit=10"
             >
               TV Shows
             </NavLink>
@@ -92,7 +92,7 @@ const Header = () => {
               className={`hover:text-[#E40813] transition-all duration-500 ease-in-out text-[14px] font-medium ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
-              to="/viewresult/hoat-hinh"
+              to="/viewresult/hoat-hinh?page=1&limit=10"
             >
               Hoạt Hình
             </NavLink>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getResultMovieAsync } from "../redux/apiRequests/apiRequests";
 
@@ -7,20 +7,25 @@ import VideoList from "../components/VideosComponent/VideoList";
 import Loading from "../components/Loading";
 
 const ViewResult = () => {
-  const { keyUrl } = useParams();
   const dispatch = useDispatch();
+  const [searchParam, setSearchParam] = useSearchParams();
+
+  const { keyUrl } = useParams();
+  const page = searchParam.get("page");
+  const limit = searchParam.get("limit");
+
   const { resultMovie, resultMoviePending } = useSelector(
     (state) => state.resultMovieReducel
   );
 
-  const getResultApi = async (url, page, limit) => {
-    const action = getResultMovieAsync(url, page, limit);
+  const getResultApi = async () => {
+    const action = getResultMovieAsync(keyUrl, page, limit);
     dispatch(action);
   };
 
   useEffect(() => {
-    getResultApi(keyUrl, 1, 20);
-  }, [keyUrl]);
+    getResultApi();
+  }, [keyUrl, page, limit]);
 
   return (
     <>
@@ -34,9 +39,6 @@ const ViewResult = () => {
               <div className="text-white text-center">
                 <p className="underline">
                   {resultMovie.data.seoOnPage.titleHead}
-                </p>
-                <p className="mt-3 italic">
-                  {resultMovie.data.seoOnPage.descriptionHead}
                 </p>
               </div>
             </div>

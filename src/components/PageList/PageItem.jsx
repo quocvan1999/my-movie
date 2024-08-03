@@ -1,18 +1,17 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams } from "react-router-dom";
-import { getResultMovieAsync } from "../../redux/apiRequests/apiRequests";
+import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 
 const PageItem = ({ page }) => {
-  const dispatch = useDispatch();
-  const { keyUrl } = useParams();
+  const [searchParam, setSearchParam] = useSearchParams();
+
   const { resultMovie, resultMoviePending } = useSelector(
     (state) => state.resultMovieReducel
   );
 
   const handlePageClick = (page) => {
-    const action = getResultMovieAsync(keyUrl, page, 20);
-    dispatch(action);
+    const limit = searchParam.get("limit");
+    setSearchParam({ page: page, limit: limit });
   };
 
   return (
