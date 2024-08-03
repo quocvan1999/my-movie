@@ -6,6 +6,11 @@
     body {
         font-family: "Roboto", sans-serif;
         background: black;
+
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 }
 
