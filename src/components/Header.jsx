@@ -61,6 +61,7 @@ const Header = () => {
                 isActive,
               }) => (isActive ? "active" : "")}`}
               to="/"
+              onClick={handleChangeButtonMenu}
             >
               Trang Chủ
             </NavLink>
@@ -69,6 +70,7 @@ const Header = () => {
                 isActive,
               }) => (isActive ? "active" : "")}`}
               to="/viewresult/phim-bo?page=1&limit=10"
+              onClick={handleChangeButtonMenu}
             >
               Phim Bộ
             </NavLink>
@@ -77,6 +79,7 @@ const Header = () => {
                 isActive,
               }) => (isActive ? "active" : "")}`}
               to="/viewresult/phim-le?page=1&limit=10"
+              onClick={handleChangeButtonMenu}
             >
               Phim Lẻ
             </NavLink>
@@ -85,6 +88,7 @@ const Header = () => {
                 isActive,
               }) => (isActive ? "active" : "")}`}
               to="/viewresult/tv-shows?page=1&limit=10"
+              onClick={handleChangeButtonMenu}
             >
               TV Shows
             </NavLink>
@@ -93,6 +97,7 @@ const Header = () => {
                 isActive,
               }) => (isActive ? "active" : "")}`}
               to="/viewresult/hoat-hinh?page=1&limit=10"
+              onClick={handleChangeButtonMenu}
             >
               Hoạt Hình
             </NavLink>
