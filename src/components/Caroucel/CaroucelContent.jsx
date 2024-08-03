@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { truncateText, formatString } from "../../assets/js/method/method";
 import { useSelector } from "react-redux";
 
@@ -53,9 +54,14 @@ const CaroucelContent = () => {
             </div>
           </div>
           <div className="mt-3">
-            <button className="bg-[#E40813] text-white uppercase text-[14px] leading-[21px] px-5 py-3 rounded-lg font-semibold flex items-center hover:bg-[#b82b32] transition-all ease-in-out duration-500">
-              stream now <i className="bx bx-play text-[24px]"></i>
-            </button>
+            <NavLink
+              to={`/detail/${detailMovie.movie.slug}`}
+              className="bg-[#E40813] uppercase inline-block text-[14px] leading-[21px] px-5 py-3 rounded-lg font-semibold hover:bg-[#b82b32] transition-all ease-in-out duration-500"
+            >
+              <span className="text-white flex items-center">
+                stream now <i className="bx bx-play text-[24px]"></i>
+              </span>
+            </NavLink>
           </div>
         </div>
       ) : (

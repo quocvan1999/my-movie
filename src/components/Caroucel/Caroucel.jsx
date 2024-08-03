@@ -102,7 +102,7 @@ const Caroucel = () => {
                         additionalTransfrom={0}
                         arrows={false}
                         autoPlay={true}
-                        autoPlaySpeed={4000}
+                        autoPlaySpeed={6000}
                         centerMode={true}
                         className="h-[100%]"
                         containerClass="container-padding-bottom"
