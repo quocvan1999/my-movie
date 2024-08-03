@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import EpisodeItem from "./EpisodeItem";
+import { useSelector } from "react-redux";
 
 const responsive = {
   superLargeDesktop: {
@@ -22,22 +23,26 @@ const responsive = {
   },
 };
 
-const EpisodeList = ({ detailMovie }) => {
+const EpisodeList = () => {
+  const { detailMovie, detailMoviePending } = useSelector(
+    (state) => state.detailMovieReducer
+  );
   return (
     <>
-      {detailMovie &&
-        detailMovie.map((server, indexServer) => {
-          return (
-            <div key={indexServer}>
-              <h1>{server.server_name}</h1>
-              <Carousel className="mt-2" responsive={responsive}>
-                {server.server_data.map((episode, index) => {
-                  return <EpisodeItem key={index} episode={episode} />;
-                })}
-              </Carousel>
-            </div>
-          );
-        })}
+      {detailMoviePending === false && detailMovie
+        ? detailMovie.episodes.map((server, indexServer) => {
+            return (
+              <div key={indexServer}>
+                <h1>{server.server_name}</h1>
+                <Carousel className="mt-2" responsive={responsive}>
+                  {server.server_data.map((episode, index) => {
+                    return <EpisodeItem key={index} episode={episode} />;
+                  })}
+                </Carousel>
+              </div>
+            );
+          })
+        : ""}
     </>
   );
 };

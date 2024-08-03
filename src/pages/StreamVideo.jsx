@@ -16,22 +16,27 @@ const StreamVideo = () => {
   const { detailMovie, detailMoviePending } = useSelector(
     (state) => state.detailMovieReducer
   );
-  const { videoPlaying } = useSelector((state) => state.videoPlayingReducer);
 
   const getDetailMovie = async (id) => {
     const action = getDetailMovieAsync(id);
     dispatch(action);
   };
 
-  const setVideoPlaying = (video) => {
-    dispatch(setVideoPlaying(video));
+  const setVideoIsPlaying = (video) => {
+    const action = setVideoPlaying(video);
+    dispatch(action);
   };
 
   useEffect(() => {
     getDetailMovie(id);
   }, [id]);
 
-  useEffect(() => {}, [detailMovie]);
+  useEffect(() => {
+    if (detailMovie.movie) {
+      let newMoviePlaying = detailMovie.episodes[0].server_data[0];
+      setVideoIsPlaying(newMoviePlaying);
+    }
+  }, [detailMovie]);
 
   return (
     <>
@@ -39,13 +44,13 @@ const StreamVideo = () => {
         <div className="w-full text-white">
           <div className="max-w-[1280px] mx-auto">
             <div className="mb-10 h-[300px] md:h-[500px]">
-              {/* <VideoContainer isVideoPlaying={isVideoPlaying} /> */}
+              <VideoContainer />
             </div>
             <div className="pb-10">
-              <StreamContent detailMovie={detailMovie.movie} />
+              <StreamContent />
             </div>
             <div className="mb-10">
-              {/* <EpisodeList detailMovie={detailMovie.episodes} /> */}
+              <EpisodeList />
             </div>
           </div>
         </div>
