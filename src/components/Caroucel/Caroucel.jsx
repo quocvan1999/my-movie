@@ -101,8 +101,8 @@ const Caroucel = () => {
                         afterChange={handleAfterChange}
                         additionalTransfrom={0}
                         arrows={false}
-                        autoPlay={false}
-                        autoPlaySpeed={2000}
+                        autoPlay={true}
+                        autoPlaySpeed={4000}
                         centerMode={true}
                         className="h-[100%]"
                         containerClass="container-padding-bottom"
