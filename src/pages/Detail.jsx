@@ -26,7 +26,7 @@ const Detail = () => {
     <div>
       {detailMoviePending === false && detailMovie.movie ? (
         <div
-          className="w-full bg-cover bg-no-repeat bg-center mb-5"
+          className="w-full bg-style-custom mb-5"
           style={{
             background: `url(${detailMovie.movie.thumb_url})`,
           }}

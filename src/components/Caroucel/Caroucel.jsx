@@ -84,10 +84,9 @@ const Caroucel = () => {
         <div>
           {detailMovie.movie ? (
             <div
-              className={`w-full h-[100vh] lg:mt-0`}
+              className={`w-full h-[100vh] lg:mt-0 bg-style-custom`}
               style={{
                 background: `url(${detailMovie.movie.thumb_url})`,
-                backgroundSize: "cover",
               }}
             >
               <div className="w-full h-full bg-custom-radial ">
@@ -102,7 +101,7 @@ const Caroucel = () => {
                         additionalTransfrom={0}
                         arrows={false}
                         autoPlay={true}
-                        autoPlaySpeed={6000}
+                        autoPlaySpeed={10000}
                         centerMode={true}
                         className="h-[100%]"
                         containerClass="container-padding-bottom"

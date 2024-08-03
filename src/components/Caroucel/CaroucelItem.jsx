@@ -10,11 +10,9 @@ const CaroucelItem = ({ item }) => {
       className="h-full p-5 transition-all duration-500 block"
     >
       <div
-        className="w-full h-full bg-blue-500 rounded-lg relative"
+        className="w-full h-full bg-blue-500 rounded-lg relative bg-style-custom"
         style={{
           background: `url(${poster_url})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
         }}
       >
         <span
