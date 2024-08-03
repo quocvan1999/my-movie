@@ -9,6 +9,7 @@ const ListPage = () => {
   );
   const [searchParam, setSearchParam] = useSearchParams();
   const [pages, setPages] = useState([]);
+  const [sizePages, setSizePages] = useState(0);
 
   const page = searchParam.get("page");
   const limit = searchParam.get("limit");
@@ -32,6 +33,19 @@ const ListPage = () => {
     setTatalPages();
   }, [resultMovie]);
 
+  useEffect(() => {
+    const size = window.innerWidth;
+    if (size >= 1000) {
+      setSizePages(4);
+    } else if (size >= 768) {
+      setSizePages(3);
+    } else if (size >= 480) {
+      setSizePages(2);
+    } else {
+      setSizePages(2);
+    }
+  }, []);
+
   return (
     <>
       {resultMoviePending === false && resultMovie.data && pages ? (
@@ -43,7 +57,7 @@ const ListPage = () => {
             onPageChange={handlePageClick}
             pageCount={pages.length}
             pageRangeDisplayed={2}
-            marginPagesDisplayed={4}
+            marginPagesDisplayed={sizePages}
             forcePage={page - 1}
             className="flex text-white gap-1 items-center"
             pageLinkClassName="text-white w-[35px] h-[35px] cursor-pointer
