@@ -8,7 +8,7 @@ const StreamContent = () => {
   );
   return (
     <>
-      {detailMoviePending === false && detailMovie ? (
+      {detailMoviePending === false && detailMovie.movie ? (
         <div className="flex flex-col lg:flex-row px-3 gap-0 lg:gap-4 ">
           <div className="w-full lg:w-[50%]">
             <div className="flex items-end flex-wrap">
