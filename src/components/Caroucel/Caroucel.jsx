@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import {
-  getNewMovieAsync,
-  getDetailMovieAsync,
+  getMovies,
+  setDetailMovieAsync,
 } from "../../redux/apiRequests/apiRequests";
+import {
+  setPhimMoiStart,
+  setPhimMoiSuccess,
+  setPhimMoiError,
+} from "../../redux/reducers/phimMoiReducer";
 
 import CustomButtonGroupAsArrows from "./CustomButtonGroupAsArrows";
 import CaroucelItem from "./CaroucelItem";
@@ -15,14 +20,6 @@ import Loading from "../Loading";
 import { useDispatch, useSelector } from "react-redux";
 
 const Caroucel = () => {
-  const dispatch = useDispatch();
-  const { newMovie, newMoviePending } = useSelector(
-    (state) => state.newMovieReducer
-  );
-  const { detailMovie, detailMoviePending } = useSelector(
-    (state) => state.detailMovieReducer
-  );
-
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1024 },
@@ -41,44 +38,57 @@ const Caroucel = () => {
       items: 1,
     },
   };
+  const dispatch = useDispatch();
+  const { phimMoi, phimMoiPending } = useSelector(
+    (state) => state.phimMoiReducer
+  );
+  const { detailMovie, detailMoviePending } = useSelector(
+    (state) => state.detailMovieReducer
+  );
+
+  const getPhimMoiApi = async () => {
+    const action = getMovies(
+      "phim-moi",
+      1,
+      10,
+      setPhimMoiStart,
+      setPhimMoiSuccess,
+      setPhimMoiError
+    );
+    dispatch(action);
+  };
+
+  const setDetailMovie = async (id) => {
+    const action = setDetailMovieAsync(id);
+    dispatch(action);
+  };
 
   const handleAfterChange = (previousSlide, { currentSlide }) => {
     let index = 0;
-    currentSlide - 2 > newMovie.length - 1
+    currentSlide - 2 > phimMoi.items.length - 1
       ? (index = 0)
       : currentSlide - 2 === -1
-      ? (index = newMovie.length - 1)
+      ? (index = phimMoi.items.length - 1)
       : currentSlide - 2 === -2
-      ? (index = newMovie.length - 2)
+      ? (index = phimMoi.items.length - 2)
       : (index = currentSlide - 2);
 
-    getDetailMovie(newMovie[index].slug);
-  };
-
-  const getNewMovie = async () => {
-    const action = getNewMovieAsync;
-    dispatch(action);
-  };
-
-  const getDetailMovie = async (id) => {
-    const action = getDetailMovieAsync(id);
-    dispatch(action);
+    setDetailMovie(phimMoi.items[index].slug);
   };
 
   useEffect(() => {
-    getNewMovie();
+    getPhimMoiApi();
   }, []);
 
   useEffect(() => {
-    if (newMovie.length > 0) {
-      const movieId = newMovie[0].slug;
-      getDetailMovie(movieId);
-    }
-  }, [newMovie]);
+    let id = "";
+    phimMoi.items && (id = phimMoi.items[0].slug);
+    setDetailMovie(id);
+  }, [phimMoi]);
 
   return (
     <>
-      {newMoviePending === true && detailMoviePending === true ? (
+      {phimMoiPending === true && detailMoviePending === true ? (
         <Loading />
       ) : (
         <div>
@@ -127,8 +137,8 @@ const Caroucel = () => {
                         slidesToSlide={1}
                         swipeable
                       >
-                        {newMovie &&
-                          newMovie.map((item, index) => (
+                        {phimMoi.items &&
+                          phimMoi.items?.map((item, index) => (
                             <CaroucelItem key={index} item={item} />
                           ))}
                       </Carousel>

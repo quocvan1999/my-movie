@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getDetailMovieAsync } from "../redux/apiRequests/apiRequests";
 import { useDispatch, useSelector } from "react-redux";
-
+import { setDetailMovieAsync } from "../redux/apiRequests/apiRequests";
 import DetailContent from "../components/DetailComponent/DetailContent";
 import Loading from "../components/Loading";
 
@@ -13,13 +12,13 @@ const Detail = () => {
     (state) => state.detailMovieReducer
   );
 
-  const getDetailMovie = async (id) => {
-    const action = getDetailMovieAsync(id);
+  const setDetailMovieApi = async (id) => {
+    const action = setDetailMovieAsync(id);
     dispatch(action);
   };
 
   useEffect(() => {
-    getDetailMovie(id);
+    setDetailMovieApi(id);
   }, [id]);
 
   return (

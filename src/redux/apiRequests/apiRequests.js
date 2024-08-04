@@ -1,33 +1,11 @@
 import axios from "axios";
 import {
-  setnewMovieStart,
-  setnewMovieSuccess,
-  setnewMovieError,
-} from "../reducers/newMovieReducer";
-import {
   setDetailMovieStart,
   setDetailMovieSuccess,
   setDetailMovieError,
 } from "../reducers/detailMovieReducer";
-import {
-  setResultMovieStart,
-  setResultMovieSuccess,
-  setResultMovieError,
-} from "../reducers/resultMovieReducel";
 
-export const getNewMovieAsync = async (dispatch) => {
-  dispatch(setnewMovieStart());
-  try {
-    const res = await axios.get(
-      "https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=1"
-    );
-    dispatch(setnewMovieSuccess(res.data.items));
-  } catch (e) {
-    dispatch(setnewMovieError(e.message));
-  }
-};
-
-export const getDetailMovieAsync = (id) => {
+export const setDetailMovieAsync = (id) => {
   return async (dispatch) => {
     dispatch(setDetailMovieStart());
     try {
@@ -39,16 +17,27 @@ export const getDetailMovieAsync = (id) => {
   };
 };
 
-export const getResultMovieAsync = (keyUrl, page, limit) => {
+export const getMovies = (
+  keyUrl,
+  page,
+  limit,
+  setStart,
+  setSuccess,
+  setError
+) => {
   return async (dispatch) => {
-    dispatch(setResultMovieStart());
+    let url = "";
+    dispatch(setStart());
     try {
-      const res = await axios.get(
-        `https://phimapi.com/v1/api/danh-sach/${keyUrl}?page=${page}&limit=${limit}`
-      );
-      dispatch(setResultMovieSuccess(res.data));
+      if (keyUrl === "phim-moi") {
+        url = `https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=${page}&limit=${limit}`;
+      } else {
+        url = `https://phimapi.com/v1/api/danh-sach/${keyUrl}?page=${page}&limit=${limit}`;
+      }
+      const res = await axios.get(url);
+      dispatch(setSuccess(res.data));
     } catch (e) {
-      dispatch(setResultMovieError(e.message));
+      dispatch(setError(e.message));
     }
   };
 };

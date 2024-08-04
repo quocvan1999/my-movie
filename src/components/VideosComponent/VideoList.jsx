@@ -3,16 +3,12 @@ import { NavLink } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import VideoItem from "./VideoItem";
-import { useSelector } from "react-redux";
 import Loading from "../Loading";
 import ListPage from "../PageList/ListPage";
 import { LimitPage } from "../LimitPage/LimitPage";
 
-const VideoList = ({ title = "", type = "", all = true }) => {
+const VideoList = ({ title = "", type = "", all = true, data = [] }) => {
   const [sizeItem, setSizeItem] = useState(0);
-  const { resultMovie, resultMoviePending } = useSelector(
-    (state) => state.resultMovieReducel
-  );
 
   const responsive = {
     superLargeDesktop: {
@@ -48,10 +44,12 @@ const VideoList = ({ title = "", type = "", all = true }) => {
 
   return (
     <>
-      {resultMoviePending === false && resultMovie.data ? (
+      {data ? (
         <div className="max-w-[1280px] mx-auto py-2">
           <div className="flex justify-between px-3">
-            <h1 className="text-white uppercase text-2xl leading-7">{title}</h1>
+            <h1 className="text-white uppercase text-2xl leading-7 after:content-[''] after:h-[2px] after:w-full after:block after:bg-[#e40813] after:mt-1">
+              {title}
+            </h1>
             {all && (
               <NavLink to="/viewresult/view-all" className="text-[#E40813]">
                 View All
@@ -61,15 +59,15 @@ const VideoList = ({ title = "", type = "", all = true }) => {
           <div>
             {type === "caroucel" ? (
               <Carousel responsive={responsive}>
-                {resultMovie.data &&
-                  resultMovie.data.items.map((item, index) => (
+                {data &&
+                  data.items.map((item, index) => (
                     <VideoItem key={index} item={item} />
                   ))}
               </Carousel>
             ) : (
               <div className="flex flex-wrap w-full">
-                {resultMovie.data &&
-                  resultMovie.data.items.map((item, index) => (
+                {data &&
+                  data.items.map((item, index) => (
                     <VideoItem
                       key={index}
                       item={item}
