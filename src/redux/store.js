@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import phimMoiReducer from "./reducers/phimMoiReducer";
-import phimLeReducer from "./reducers/phimLeReducer";
+import phimBoReducer from "./reducers/phimBoReducer";
 import detailMovieReducer from "./reducers/detailMovieReducer";
 import videoPlayingReducer from "./reducers/videoPlayingReducer";
 
 export const store = configureStore({
   reducer: {
     phimMoiReducer: phimMoiReducer,
-    phimLeReducer: phimLeReducer,
+    phimBoReducer: phimBoReducer,
     detailMovieReducer: detailMovieReducer,
     videoPlayingReducer: videoPlayingReducer,
   },

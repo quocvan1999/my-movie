@@ -7,6 +7,11 @@ import {
   setPhimMoiSuccess,
   setPhimMoiError,
 } from "../redux/reducers/phimMoiReducer";
+import {
+  setPhimBoStart,
+  setPhimBoSuccess,
+  setPhimBoError,
+} from "../redux/reducers/phimBoReducer";
 
 import Caroucel from "../components/Caroucel/Caroucel";
 import VideoList from "../components/VideosComponent/VideoList";
@@ -18,6 +23,7 @@ const Home = () => {
   const { phimMoi, phimMoiPending } = useSelector(
     (state) => state.phimMoiReducer
   );
+  const { phimBo, phimBoPending } = useSelector((state) => state.phimBoReducer);
 
   const getPhimMoiApi = async () => {
     const action = getMovies(
@@ -31,8 +37,21 @@ const Home = () => {
     dispatch(action);
   };
 
+  const getPhimBoiApi = async () => {
+    const action = getMovies(
+      "phim-bo",
+      1,
+      20,
+      setPhimBoStart,
+      setPhimBoSuccess,
+      setPhimBoError
+    );
+    dispatch(action);
+  };
+
   useEffect(() => {
     getPhimMoiApi();
+    getPhimBoiApi();
   }, []);
 
   return (
@@ -48,7 +67,16 @@ const Home = () => {
         )}
       </div>
       <div className="mt-10 lg:mx-3">
-        {/* <VideoList title="Phim lẽ" type="caroucel" all="true" data={}/> */}
+        <div>
+          {phimBoPending === false &&
+          phimBo &&
+          phimBo?.data &&
+          phimBo?.data.items ? (
+            <VideoList data={phimBo.data} type="caroucel" />
+          ) : (
+            <Loading />
+          )}
+        </div>
       </div>
     </div>
   );

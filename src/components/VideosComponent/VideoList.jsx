@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+
 import VideoItem from "./VideoItem";
 import Loading from "../Loading";
-import ListPage from "../PageList/ListPage";
-import { LimitPage } from "../LimitPage/LimitPage";
 
-const VideoList = ({ title = "", type = "", all = true, data = [] }) => {
+const VideoList = ({ type = "", data = [] }) => {
   const [sizeItem, setSizeItem] = useState(0);
 
   const responsive = {
@@ -44,23 +43,25 @@ const VideoList = ({ title = "", type = "", all = true, data = [] }) => {
 
   return (
     <>
-      {data ? (
+      {data && data.items ? (
         <div className="max-w-[1280px] mx-auto py-2">
           <div className="flex justify-between px-3">
             <h1 className="text-white uppercase text-2xl leading-7 after:content-[''] after:h-[2px] after:w-full after:block after:bg-[#e40813] after:mt-1">
-              {title}
+              {data.titlePage}
             </h1>
-            {all && (
-              <NavLink to="/viewresult/view-all" className="text-[#E40813]">
-                View All
-              </NavLink>
-            )}
+            <NavLink
+              to={`/viewresult/${data.type_list}?page=1&limit=10`}
+              className="text-[#E40813]"
+            >
+              View All
+            </NavLink>
           </div>
           <div>
             {type === "caroucel" ? (
               <Carousel responsive={responsive}>
                 {data &&
-                  data.items.map((item, index) => (
+                  data?.items &&
+                  data?.items.map((item, index) => (
                     <VideoItem key={index} item={item} />
                   ))}
               </Carousel>
@@ -77,14 +78,14 @@ const VideoList = ({ title = "", type = "", all = true, data = [] }) => {
               </div>
             )}
           </div>
-          <div className="px-3">
+          {/* <div className="px-3">
             {!all && (
               <div className="w-full flex justify-between items-center">
                 <LimitPage />
                 <ListPage />
               </div>
             )}
-          </div>
+          </div> */}
         </div>
       ) : (
         <Loading />
