@@ -12,6 +12,21 @@ import {
   setPhimBoSuccess,
   setPhimBoError,
 } from "../redux/reducers/phimBoReducer";
+import {
+  setPhimLeStart,
+  setPhimLeSuccess,
+  setPhimLeError,
+} from "../redux/reducers/phimLeReducer";
+import {
+  setTvShowsStart,
+  setTvShowsSuccess,
+  setTvShowsError,
+} from "../redux/reducers/tvShowsReducer";
+import {
+  setHoatHinhStart,
+  setHoatHinhSuccess,
+  setHoatHinhError,
+} from "../redux/reducers/hoatHinhReducer";
 
 import Caroucel from "../components/Caroucel/Caroucel";
 import VideoList from "../components/VideosComponent/VideoList";
@@ -24,6 +39,13 @@ const Home = () => {
     (state) => state.phimMoiReducer
   );
   const { phimBo, phimBoPending } = useSelector((state) => state.phimBoReducer);
+  const { phimLe, phimLePending } = useSelector((state) => state.phimLeReducer);
+  const { tvShows, tvShowsPending } = useSelector(
+    (state) => state.tvShowsReducer
+  );
+  const { hoatHinh, hoatHinhPending } = useSelector(
+    (state) => state.hoatHinhReducer
+  );
 
   const getPhimMoiApi = async () => {
     const action = getMovies(
@@ -37,7 +59,7 @@ const Home = () => {
     dispatch(action);
   };
 
-  const getPhimBoiApi = async () => {
+  const getPhimBoApi = async () => {
     const action = getMovies(
       "phim-bo",
       1,
@@ -49,9 +71,48 @@ const Home = () => {
     dispatch(action);
   };
 
+  const getPhimLeApi = async () => {
+    const action = getMovies(
+      "phim-le",
+      1,
+      20,
+      setPhimLeStart,
+      setPhimLeSuccess,
+      setPhimLeError
+    );
+    dispatch(action);
+  };
+
+  const getTvShowsApi = async () => {
+    const action = getMovies(
+      "tv-shows",
+      1,
+      20,
+      setTvShowsStart,
+      setTvShowsSuccess,
+      setTvShowsError
+    );
+    dispatch(action);
+  };
+
+  const getHoatHinhApi = async () => {
+    const action = getMovies(
+      "hoat-hinh",
+      1,
+      20,
+      setHoatHinhStart,
+      setHoatHinhSuccess,
+      setHoatHinhError
+    );
+    dispatch(action);
+  };
+
   useEffect(() => {
     getPhimMoiApi();
-    getPhimBoiApi();
+    getPhimBoApi();
+    getPhimLeApi();
+    getTvShowsApi();
+    getHoatHinhApi();
   }, []);
 
   return (
@@ -73,6 +134,36 @@ const Home = () => {
           phimBo?.data &&
           phimBo?.data.items ? (
             <VideoList data={phimBo.data} type="caroucel" />
+          ) : (
+            <Loading />
+          )}
+        </div>
+        <div>
+          {phimLePending === false &&
+          phimLe &&
+          phimLe?.data &&
+          phimLe?.data.items ? (
+            <VideoList data={phimLe.data} type="caroucel" />
+          ) : (
+            <Loading />
+          )}
+        </div>
+        <div>
+          {tvShowsPending === false &&
+          tvShows &&
+          tvShows?.data &&
+          tvShows?.data.items ? (
+            <VideoList data={tvShows.data} type="caroucel" />
+          ) : (
+            <Loading />
+          )}
+        </div>
+        <div>
+          {hoatHinhPending === false &&
+          hoatHinh &&
+          hoatHinh?.data &&
+          hoatHinh?.data.items ? (
+            <VideoList data={hoatHinh.data} type="caroucel" />
           ) : (
             <Loading />
           )}
