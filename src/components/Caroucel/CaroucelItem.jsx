@@ -3,26 +3,27 @@ import { NavLink } from "react-router-dom";
 
 const CaroucelItem = ({ item }) => {
   const { poster_url, slug } = item;
-
   return (
-    <NavLink
-      to={`/detail/${slug}`}
-      className="h-full p-5 transition-all duration-500 block"
-    >
-      <div
-        className="w-full h-full bg-blue-500 rounded-lg relative bg-style-custom"
-        style={{
-          background: `url(${poster_url})`,
-        }}
+    <>
+      <NavLink
+        to={`/detail/${slug}`}
+        className="h-full p-5 transition-all duration-500 block"
       >
-        <span
-          className="w-full h-full block absolute rounded-lg"
+        <div
+          className="w-full h-full bg-blue-500 rounded-lg relative bg-style-custom"
           style={{
-            background: "radial-gradient(circle, transparent, black)",
+            background: `url(${poster_url})`,
           }}
-        />
-      </div>
-    </NavLink>
+        >
+          <span
+            className="w-full h-full block absolute rounded-lg"
+            style={{
+              background: "radial-gradient(circle, transparent, black)",
+            }}
+          />
+        </div>
+      </NavLink>
+    </>
   );
 };
 

@@ -16,7 +16,7 @@ const DetailContent = () => {
 
   return (
     <>
-      {detailMoviePending === false && detailMovie.movie ? (
+      {detailMoviePending === false && detailMovie && detailMovie.movie && (
         <div className="max-w-[1280px] h-full mx-auto lg:py-14">
           <ModalTrailer
             toggleModal={toggleModal}
@@ -109,8 +109,6 @@ const DetailContent = () => {
             </p>
           </div>
         </div>
-      ) : (
-        ""
       )}
     </>
   );

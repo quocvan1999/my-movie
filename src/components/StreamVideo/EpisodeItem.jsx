@@ -13,7 +13,7 @@ const EpisodeItem = ({ episode }) => {
 
   return (
     <>
-      {videoPlaying ? (
+      {videoPlaying && (
         <div className="pe-2">
           <button
             onClick={() => {
@@ -28,8 +28,6 @@ const EpisodeItem = ({ episode }) => {
             {episode.name}
           </button>
         </div>
-      ) : (
-        ""
       )}
     </>
   );

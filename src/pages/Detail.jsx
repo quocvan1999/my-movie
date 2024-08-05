@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDetailMovieAsync } from "../redux/apiRequests/apiRequests";
 import DetailContent from "../components/DetailComponent/DetailContent";
 import Loading from "../components/Loading";
+import DetailBackground from "../components/DetailComponent/DetailBackground";
 
 const Detail = () => {
   const { id } = useParams();
@@ -23,19 +24,17 @@ const Detail = () => {
 
   return (
     <div>
-      {detailMoviePending === false && detailMovie.movie ? (
-        <div
-          className="w-full bg-style-custom mb-5"
-          style={{
-            background: `url(${detailMovie.movie.thumb_url})`,
-          }}
-        >
-          <div className="w-full h-full bg-[#000000af]">
+      {detailMoviePending === false && detailMovie && detailMovie?.movie ? (
+        <div className="w-full bg-style-custom relative mb-5">
+          <DetailBackground />
+          <div className="w-full h-full bg-[#000000af] relative">
             <DetailContent />
           </div>
         </div>
       ) : (
-        <Loading />
+        <div className="h-[100vh]">
+          <Loading />
+        </div>
       )}
     </div>
   );

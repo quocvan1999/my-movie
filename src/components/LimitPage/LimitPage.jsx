@@ -3,30 +3,30 @@ import LimitItem from "./LimitItem";
 import { useSearchParams } from "react-router-dom";
 
 export const LimitPage = () => {
-  const [limitPage, setLimitPage] = useState([]);
-  const [searchParam, setSearchParam] = useSearchParams();
+  // const [limitPage, setLimitPage] = useState([]);
+  // const [searchParam, setSearchParam] = useSearchParams();
 
-  const page = searchParam.get("page");
-  const limit = searchParam.get("limit");
+  // const page = searchParam.get("page");
+  // const limit = searchParam.get("limit");
 
-  const renderLimitItem = (number) => {
-    for (let index = 1; index * 10 <= number; index++) {
-      setLimitPage((prev) => [...prev, index * 10]);
-    }
-  };
+  // const renderLimitItem = (number) => {
+  //   for (let index = 1; index * 10 <= number; index++) {
+  //     setLimitPage((prev) => [...prev, index * 10]);
+  //   }
+  // };
 
-  const handleChangeLimitPage = (value) => {
-    setSearchParam({ page: page, limit: value });
-  };
+  // const handleChangeLimitPage = (value) => {
+  //   setSearchParam({ page: page, limit: value });
+  // };
 
-  useEffect(() => {
-    setLimitPage([]);
-    renderLimitItem(100);
-  }, []);
+  // useEffect(() => {
+  //   setLimitPage([]);
+  //   renderLimitItem(100);
+  // }, []);
 
   return (
     <div>
-      <form className="max-w-sm mx-auto">
+      {/* <form className="max-w-sm mx-auto">
         <select
           onChange={(e) => {
             handleChangeLimitPage(e.target.value);
@@ -38,7 +38,7 @@ export const LimitPage = () => {
             <LimitItem key={index} limit={limit} />
           ))}
         </select>
-      </form>
+      </form> */}
     </div>
   );
 };

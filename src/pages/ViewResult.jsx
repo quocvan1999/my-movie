@@ -43,8 +43,7 @@ const ViewResult = () => {
         </div>
       ) : (
         <Loading />
-      )} */}{" "}
-      View
+      )} */}
     </>
   );
 };
