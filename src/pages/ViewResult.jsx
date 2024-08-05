@@ -1,26 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const ViewResult = () => {
-  // const dispatch = useDispatch();
-  // const [searchParam, setSearchParam] = useSearchParams();
-
-  // const { keyUrl } = useParams();
-  // const page = searchParam.get("page");
-  // const limit = searchParam.get("limit");
-
-  // const { resultMovie, resultMoviePending } = useSelector(
-  //   (state) => state.resultMovieReducel
-  // );
-
-  // const getResultApi = async () => {
-  //   const action = getResultMovieAsync(keyUrl, page, limit);
-  //   dispatch(action);
-  // };
-
-  // useEffect(() => {
-  //   getResultApi();
-  // }, [keyUrl, page, limit]);
-
   return (
     <>
       {/* {resultMoviePending === false && resultMovie.data ? (
