@@ -10,7 +10,9 @@ const Header = () => {
   };
 
   const handleChangeButtonMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    if (window.innerWidth < 1024) {
+      setIsMenuOpen(!isMenuOpen);
+    }
   };
 
   useEffect(() => {
@@ -31,7 +33,7 @@ const Header = () => {
         <div className="flex items-center justify-between px-3 py-4 lg:px-0 lg:py-0 bg-[#151515] lg:bg-transparent">
           {/* Logo */}
           <div className="max-w-[150px]">
-            <NavLink to="/">
+            <NavLink to="/" className="cursor-pointer">
               <img
                 className="w-full"
                 src="../../public/images/logo.png"
@@ -51,7 +53,7 @@ const Header = () => {
         <div
           className={`${
             isMenuOpen ? "flex" : "d-none"
-          } lg:flex flex-col lg:flex-row w-full items-center justify-between lg:justify-end gap-6 px-3 py-2 lg:px-0 lg:py-0 bg-[#000000c0] lg:bg-transparent ${
+          } lg:flex flex-col lg:flex-row w-full items-center justify-between lg:justify-end gap-6 px-3 py-2 lg:px-0 lg:py-0 bg-[#000000ce] lg:bg-transparent z-20 ${
             isMenuOpen ? "fixed" : ""
           }`}
         >
