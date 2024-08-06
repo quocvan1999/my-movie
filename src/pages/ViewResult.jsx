@@ -125,9 +125,9 @@ const ViewResult = () => {
               <h1 className="text-[#E40813] font-bold text-4xl uppercase">
                 {data.data.titlePage}
               </h1>
-              <div className="text-white text-center">
+              {/* <div className="text-white text-center">
                 <p className="underline">{data.data.seoOnPage.titleHead}</p>
-              </div>
+              </div> */}
             </div>
           </div>
           <div>
