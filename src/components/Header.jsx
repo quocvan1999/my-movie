@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleScroll = () => {
     window.scrollY > 20 ? setIsScrolled(true) : setIsScrolled(false);
@@ -12,6 +13,14 @@ const Header = () => {
   const handleChangeButtonMenu = () => {
     if (window.innerWidth < 1024) {
       setIsMenuOpen(!isMenuOpen);
+    }
+  };
+
+  const handleChangeInputSearch = (value) => {
+    if (value.trim() === "") {
+      navigate("/");
+    } else {
+      navigate(`/viewresult/search?searchValue=${value}&page=1&limit=20`);
     }
   };
 
@@ -114,6 +123,9 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search"
+              onChange={(e) => {
+                handleChangeInputSearch(e.target.value);
+              }}
               className="px-4 bg-transparent placeholder:text-white placeholder:text-[14px] border-l focus:outline-0"
             />
           </div>

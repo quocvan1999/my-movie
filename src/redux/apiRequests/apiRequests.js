@@ -23,7 +23,8 @@ export const getMovies = (
   limit,
   setStart,
   setSuccess,
-  setError
+  setError,
+  searchValue
 ) => {
   return async (dispatch) => {
     let url = "";
@@ -31,6 +32,8 @@ export const getMovies = (
     try {
       if (keyUrl === "phim-moi") {
         url = `https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=${page}&limit=${limit}`;
+      } else if (keyUrl === "search") {
+        url = `https://phimapi.com/v1/api/tim-kiem?keyword=${searchValue}&page=${page}&limit=${limit}`;
       } else {
         url = `https://phimapi.com/v1/api/danh-sach/${keyUrl}?page=${page}&limit=${limit}`;
       }

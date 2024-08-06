@@ -7,6 +7,7 @@ import videoPlayingReducer from "./reducers/videoPlayingReducer";
 import phimLeReducer from "./reducers/phimLeReducer";
 import tvShowsReducer from "./reducers/tvShowsReducer";
 import hoatHinhReducer from "./reducers/hoatHinhReducer";
+import searchResultReducer from "./reducers/searchResultReducer";
 
 export const store = configureStore({
   reducer: {
@@ -17,5 +18,6 @@ export const store = configureStore({
     hoatHinhReducer: hoatHinhReducer,
     detailMovieReducer: detailMovieReducer,
     videoPlayingReducer: videoPlayingReducer,
+    searchResultReducer: searchResultReducer,
   },
 });

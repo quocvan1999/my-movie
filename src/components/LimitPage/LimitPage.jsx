@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LimitItem from "./LimitItem";
 import { useSearchParams } from "react-router-dom";
+import { list } from "postcss";
 
 const LimitPage = ({ data }) => {
   const [limitPage, setLimitPage] = useState([]);
@@ -32,11 +33,13 @@ const LimitPage = ({ data }) => {
           onChange={(e) => {
             handleChangeLimitPage(e.target.value);
           }}
-          value={limit}
+          value={limit ? limit : 0}
         >
-          {limitPage.map((limit, index) => (
-            <LimitItem key={index} limit={limit} />
-          ))}
+          {limitPage &&
+            limitPage.length > 0 &&
+            limitPage.map((limit, index) => (
+              <LimitItem key={index} limit={limit} />
+            ))}
         </select>
       </form>
     </div>

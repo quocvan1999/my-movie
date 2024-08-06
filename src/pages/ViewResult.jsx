@@ -28,6 +28,11 @@ import {
   setHoatHinhSuccess,
   setHoatHinhError,
 } from "../redux/reducers/hoatHinhReducer";
+import {
+  setSearchResultStart,
+  setSearchResultSuccess,
+  setSearchResultError,
+} from "../redux/reducers/searchResultReducer";
 
 const ViewResult = () => {
   const { keyUrl } = useParams();
@@ -36,6 +41,7 @@ const ViewResult = () => {
 
   const page = searchParam.get("page");
   const limit = searchParam.get("limit");
+  const searchValue = searchParam.get("searchValue");
 
   const getData = (keyUrl) => {
     let data = [];
@@ -70,6 +76,13 @@ const ViewResult = () => {
         data = hoatHinh;
         pending = hoatHinhPending;
         break;
+      case "search":
+        const { searchResult, searchResultPending } = useSelector(
+          (state) => state.searchResultReducer
+        );
+        data = searchResult;
+        pending = searchResultPending;
+        break;
       default:
         break;
     }
@@ -77,7 +90,7 @@ const ViewResult = () => {
     return { data, pending };
   };
 
-  const getResultApi = async (keyUrl, limit, page) => {
+  const getResultApi = async (keyUrl, limit, page, searchValue) => {
     let start = null;
     let success = null;
     let error = null;
@@ -103,18 +116,31 @@ const ViewResult = () => {
         success = setHoatHinhSuccess;
         error = setHoatHinhError;
         break;
+      case "search":
+        start = setSearchResultStart;
+        success = setSearchResultSuccess;
+        error = setSearchResultError;
+        break;
       default:
         break;
     }
-    const action = getMovies(keyUrl, page, limit, start, success, error);
+    const action = getMovies(
+      keyUrl,
+      page,
+      limit,
+      start,
+      success,
+      error,
+      searchValue
+    );
     dispatch(action);
   };
 
   const { data, pending } = getData(keyUrl);
 
   useEffect(() => {
-    getResultApi(keyUrl, limit, page);
-  }, [keyUrl, limit, page]);
+    getResultApi(keyUrl, limit, page, searchValue);
+  }, [keyUrl, limit, page, searchValue]);
 
   return (
     <>
