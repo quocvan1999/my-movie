@@ -4,6 +4,29 @@ import {
   setDetailMovieSuccess,
   setDetailMovieError,
 } from "../reducers/detailMovieReducer";
+import {
+  setPhimTheoTheLoaiStart,
+  setPhimTheoTheLoaiSuccess,
+  setPhimTheoTheLoaiError,
+  resetPhimTheoTheLoai,
+} from "../reducers/phimTheoTheLoaiReducer";
+
+export const getMoviesInTypeAsync = (type) => {
+  return async (dispatch) => {
+    dispatch(setPhimTheoTheLoaiStart());
+    dispatch(resetPhimTheoTheLoai());
+    try {
+      for (let index = 0; index < type.length; index++) {
+        const res = await axios.get(
+          `https://phimapi.com/v1/api/the-loai/${type[index].slug}`
+        );
+        dispatch(setPhimTheoTheLoaiSuccess(res.data));
+      }
+    } catch (e) {
+      dispatch(setPhimTheoTheLoaiError(e.message));
+    }
+  };
+};
 
 export const setDetailMovieAsync = (id) => {
   return async (dispatch) => {
