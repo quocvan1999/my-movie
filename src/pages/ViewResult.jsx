@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
-import { getMovies } from "../redux/apiRequests/apiRequests";
+import {
+  getMovies,
+  getMoviesInTypeAsync,
+} from "../redux/apiRequests/apiRequests";
 import { useDispatch, useSelector } from "react-redux";
 
 import Loading from "../components/Loading";
@@ -84,9 +87,13 @@ const ViewResult = () => {
         pending = searchResultPending;
         break;
       default:
+        const { phimTheoTheLoai, phimTheoTheLoaiPending } = useSelector(
+          (state) => state.phimTheoTheLoaiReducer
+        );
+        data = phimTheoTheLoai[0];
+        pending = phimTheoTheLoaiPending;
         break;
     }
-
     return { data, pending };
   };
 
@@ -94,6 +101,7 @@ const ViewResult = () => {
     let start = null;
     let success = null;
     let error = null;
+    let isBreak = false;
 
     switch (keyUrl) {
       case "phim-bo":
@@ -122,18 +130,22 @@ const ViewResult = () => {
         error = setSearchResultError;
         break;
       default:
+        dispatch(getMoviesInTypeAsync(keyUrl, page, limit));
+        isBreak = true;
         break;
     }
-    const action = getMovies(
-      keyUrl,
-      page,
-      limit,
-      start,
-      success,
-      error,
-      searchValue
-    );
-    dispatch(action);
+    if (isBreak === false) {
+      const action = getMovies(
+        keyUrl,
+        page,
+        limit,
+        start,
+        success,
+        error,
+        searchValue
+      );
+      dispatch(action);
+    }
   };
 
   const { data, pending } = getData(keyUrl);

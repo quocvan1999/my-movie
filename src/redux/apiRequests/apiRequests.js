@@ -11,15 +11,23 @@ import {
   resetPhimTheoTheLoai,
 } from "../reducers/phimTheoTheLoaiReducer";
 
-export const getMoviesInTypeAsync = (type) => {
+export const getMoviesInTypeAsync = (type, page, limit) => {
   return async (dispatch) => {
     dispatch(setPhimTheoTheLoaiStart());
     dispatch(resetPhimTheoTheLoai());
     try {
-      for (let index = 0; index < type.length; index++) {
+      if (typeof type === "object") {
+        for (let index = 0; index < type.length; index++) {
+          const res = await axios.get(
+            `https://phimapi.com/v1/api/the-loai/${type[index].slug}?page=1&limit=20`
+          );
+          dispatch(setPhimTheoTheLoaiSuccess(res.data));
+        }
+      } else {
         const res = await axios.get(
-          `https://phimapi.com/v1/api/the-loai/${type[index].slug}`
+          `https://phimapi.com/v1/api/the-loai/${type}?page=${page}&limit=${limit}`
         );
+
         dispatch(setPhimTheoTheLoaiSuccess(res.data));
       }
     } catch (e) {
