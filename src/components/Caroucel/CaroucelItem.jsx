@@ -15,12 +15,7 @@ const CaroucelItem = ({ item }) => {
             background: `url(${poster_url})`,
           }}
         >
-          <span
-            className="w-full h-full block absolute rounded-lg"
-            style={{
-              background: "radial-gradient(circle, transparent, black)",
-            }}
-          />
+          <span className="w-full h-full block absolute rounded-lg bg-custom-radial" />
         </div>
       </NavLink>
     </>
