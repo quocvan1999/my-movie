@@ -126,6 +126,9 @@ const Header = () => {
               onChange={(e) => {
                 handleChangeInputSearch(e.target.value);
               }}
+              onKeyDown={(e) => {
+                handleChangeInputSearch(e.target.value);
+              }}
               className="px-4 bg-transparent placeholder:text-white placeholder:text-[14px] border-l focus:outline-0"
             />
           </div>
