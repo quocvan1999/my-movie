@@ -3,52 +3,49 @@ import { useSelector } from "react-redux";
 import ReactPaginate from "react-paginate";
 import { useSearchParams } from "react-router-dom";
 
-const ListPage = () => {
-  // const { resultMovie, resultMoviePending } = useSelector(
-  //   (state) => state.resultMovieReducel
-  // );
-  // const [searchParam, setSearchParam] = useSearchParams();
-  // const [pages, setPages] = useState([]);
-  // const [sizePages, setSizePages] = useState(0);
+const ListPage = ({ data }) => {
+  const [searchParam, setSearchParam] = useSearchParams();
+  const [pages, setPages] = useState([]);
+  const [sizePages, setSizePages] = useState(0);
 
-  // const page = searchParam.get("page");
-  // const limit = searchParam.get("limit");
+  const page = searchParam.get("page");
+  const limit = searchParam.get("limit");
 
-  // const setTatalPages = () => {
-  //   if (resultMovie.data) {
-  //     const totalPages = resultMovie.data.params.pagination.totalPages;
-  //     for (let index = 0; index < totalPages; index++) {
-  //       setPages((pages) => [...pages, index + 1]);
-  //     }
-  //   }
-  // };
+  const setTatalPages = () => {
+    if (data) {
+      const totalPages = data.params.pagination.totalPages;
+      for (let index = 0; index < totalPages; index++) {
+        setPages((pages) => [...pages, index + 1]);
+      }
+    }
+  };
 
-  // const handlePageClick = (value) => {
-  //   const newPage = value.selected + 1;
-  //   setSearchParam({ page: newPage, limit: limit });
-  // };
+  const handlePageClick = (value) => {
+    const newPage = value.selected + 1;
+    setSearchParam({ page: newPage, limit: limit });
+  };
 
-  // useEffect(() => {
-  //   setPages([]);
-  //   setTatalPages();
-  // }, [resultMovie]);
+  useEffect(() => {
+    setPages([]);
+    setTatalPages();
+  }, [data]);
 
-  // useEffect(() => {
-  //   const size = window.innerWidth;
-  //   if (size >= 1000) {
-  //     setSizePages(4);
-  //   } else if (size >= 768) {
-  //     setSizePages(2);
-  //   } else if (size >= 480) {
-  //     setSizePages(1);
-  //   } else {
-  //     setSizePages(1);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const size = window.innerWidth;
+    if (size >= 1000) {
+      setSizePages(4);
+    } else if (size >= 768) {
+      setSizePages(2);
+    } else if (size >= 480) {
+      setSizePages(1);
+    } else {
+      setSizePages(1);
+    }
+  }, []);
 
   return (
     <>
-      <div className="flex">
+      <div className="flex text-white">
         <ReactPaginate
           previousLabel="<"
           breakLabel="..."
@@ -67,6 +64,7 @@ const ListPage = () => {
             flex items-center rounded-md justify-center bg-[#202020] hover:bg-[#E40813] transition-all duration-500 ease-in-out"
           nextLinkClassName="text-white w-[35px] h-[35px] cursor-pointer
             flex items-center rounded-md justify-center bg-[#202020] hover:bg-[#E40813] transition-all duration-500 ease-in-out"
+          disabledLinkClassName="opacity-50 hover:bg-[#202020]"
         />
       </div>
     </>

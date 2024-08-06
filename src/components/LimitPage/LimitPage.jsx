@@ -2,43 +2,45 @@ import React, { useEffect, useState } from "react";
 import LimitItem from "./LimitItem";
 import { useSearchParams } from "react-router-dom";
 
-export const LimitPage = () => {
-  // const [limitPage, setLimitPage] = useState([]);
-  // const [searchParam, setSearchParam] = useSearchParams();
+const LimitPage = ({ data }) => {
+  const [limitPage, setLimitPage] = useState([]);
+  const [searchParam, setSearchParam] = useSearchParams();
 
-  // const page = searchParam.get("page");
-  // const limit = searchParam.get("limit");
+  const page = searchParam.get("page");
+  const limit = searchParam.get("limit");
 
-  // const renderLimitItem = (number) => {
-  //   for (let index = 1; index * 10 <= number; index++) {
-  //     setLimitPage((prev) => [...prev, index * 10]);
-  //   }
-  // };
+  const handleChangeLimitPage = (value) => {
+    setSearchParam({ page: page, limit: value });
+  };
 
-  // const handleChangeLimitPage = (value) => {
-  //   setSearchParam({ page: page, limit: value });
-  // };
+  const renderLimitItem = (number) => {
+    for (let index = 1; index * 10 <= number; index++) {
+      setLimitPage((prev) => [...prev, index * 10]);
+    }
+  };
 
-  // useEffect(() => {
-  //   setLimitPage([]);
-  //   renderLimitItem(100);
-  // }, []);
+  useEffect(() => {
+    setLimitPage([]);
+    renderLimitItem(100);
+  }, []);
 
   return (
-    <div>
-      {/* <form className="max-w-sm mx-auto">
+    <div className="w-full">
+      <form className="">
         <select
+          className="bg-[#202020] text-white text-sm rounded-md inline-block p-2 cursor-pointer"
           onChange={(e) => {
             handleChangeLimitPage(e.target.value);
           }}
-          className="bg-[#202020] text-white text-sm rounded-md inline-block p-2 cursor-pointer"
           value={limit}
         >
           {limitPage.map((limit, index) => (
             <LimitItem key={index} limit={limit} />
           ))}
         </select>
-      </form> */}
+      </form>
     </div>
   );
 };
+
+export default LimitPage;

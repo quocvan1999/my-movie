@@ -46,15 +46,19 @@ const VideoList = ({ type = "", data = [] }) => {
       {data && data.items ? (
         <div className="max-w-[1280px] mx-auto py-2">
           <div className="flex justify-between px-3">
-            <h1 className="text-white uppercase text-2xl leading-7 after:content-[''] after:h-[2px] after:w-full after:block after:bg-[#e40813] after:mt-1">
-              {data.titlePage}
-            </h1>
-            <NavLink
-              to={`/viewresult/${data.type_list}?page=1&limit=10`}
-              className="text-[#E40813]"
-            >
-              View All
-            </NavLink>
+            {type === "caroucel" && (
+              <>
+                <h1 className="text-white uppercase text-2xl leading-7 after:content-[''] after:h-[2px] after:w-full after:block after:bg-[#e40813] after:mt-1">
+                  {data.titlePage}
+                </h1>
+                <NavLink
+                  to={`/viewresult/${data.type_list}?page=1&limit=20`}
+                  className="text-[#E40813]"
+                >
+                  View All
+                </NavLink>
+              </>
+            )}
           </div>
           <div>
             {type === "caroucel" ? (
@@ -78,14 +82,6 @@ const VideoList = ({ type = "", data = [] }) => {
               </div>
             )}
           </div>
-          {/* <div className="px-3">
-            {!all && (
-              <div className="w-full flex justify-between items-center">
-                <LimitPage />
-                <ListPage />
-              </div>
-            )}
-          </div> */}
         </div>
       ) : (
         <Loading />
