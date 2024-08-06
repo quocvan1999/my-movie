@@ -135,7 +135,7 @@ const Home = () => {
           phimBo?.data.items ? (
             <VideoList data={phimBo.data} type="caroucel" />
           ) : (
-            <Loading />
+            ""
           )}
         </div>
         <div>
@@ -145,7 +145,7 @@ const Home = () => {
           phimLe?.data.items ? (
             <VideoList data={phimLe.data} type="caroucel" />
           ) : (
-            <Loading />
+            ""
           )}
         </div>
         <div>
@@ -155,7 +155,7 @@ const Home = () => {
           tvShows?.data.items ? (
             <VideoList data={tvShows.data} type="caroucel" />
           ) : (
-            <Loading />
+            ""
           )}
         </div>
         <div>
@@ -165,7 +165,7 @@ const Home = () => {
           hoatHinh?.data.items ? (
             <VideoList data={hoatHinh.data} type="caroucel" />
           ) : (
-            <Loading />
+            ""
           )}
         </div>
       </div>

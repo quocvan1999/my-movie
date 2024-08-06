@@ -64,15 +64,13 @@ const StreamVideo = () => {
           <div>
             {phimTheoTheLoaiPending === false &&
             phimTheoTheLoai &&
-            phimTheoTheLoai?.length > 0 ? (
-              phimTheoTheLoai.map((item, index) => {
-                return (
-                  <VideoList data={item.data} key={index} type="caroucel" />
-                );
-              })
-            ) : (
-              <Loading />
-            )}
+            phimTheoTheLoai?.length > 0
+              ? phimTheoTheLoai.map((item, index) => {
+                  return (
+                    <VideoList data={item.data} key={index} type="caroucel" />
+                  );
+                })
+              : ""}
           </div>
         </div>
       ) : (
