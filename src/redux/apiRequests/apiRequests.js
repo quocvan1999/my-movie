@@ -13,17 +13,32 @@ import {
 import {
   setQuocGiaStart,
   setQuocGiaSuccess,
+  setDetailQuocGiaSuccess,
   setQuocGiaError,
 } from "../reducers/quocGiaReducer";
 
 export const getQuocGia = async (dispatch) => {
-  dispatch(setQuocGiaStart());
   try {
+    dispatch(setQuocGiaStart());
     const res = await axios.get("https://phimapi.com/quoc-gia");
     dispatch(setQuocGiaSuccess(res.data));
   } catch (error) {
     dispatch(setQuocGiaError(error.message));
   }
+};
+
+export const getDetailQuocGia = (quocGia, page, limit) => {
+  return async (dispatch) => {
+    dispatch(setQuocGiaStart());
+    try {
+      const res = await axios.get(
+        `https://phimapi.com/v1/api/quoc-gia/${quocGia}?page=${page}&limit=${limit}`
+      );
+      dispatch(setDetailQuocGiaSuccess(res.data));
+    } catch (error) {
+      dispatch(setQuocGiaError(error.message));
+    }
+  };
 };
 
 export const getMoviesInTypeAsync = (type, page, limit) => {

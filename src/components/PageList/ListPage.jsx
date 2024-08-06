@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import ReactPaginate from "react-paginate";
 import { useSearchParams } from "react-router-dom";
 

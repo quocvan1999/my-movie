@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
 import LimitItem from "./LimitItem";
 import { useSearchParams } from "react-router-dom";
-import { list } from "postcss";
 
-const LimitPage = ({ data }) => {
+const LimitPage = () => {
   const [limitPage, setLimitPage] = useState([]);
   const [searchParam, setSearchParam] = useSearchParams();
 
   const page = searchParam.get("page");
   const limit = searchParam.get("limit");
+  const country = searchParam.get("country");
+  const searchValue = searchParam.get("searchValue");
 
   const handleChangeLimitPage = (value) => {
-    setSearchParam({ page: page, limit: value });
+    setSearchParam({
+      page: page,
+      limit: value,
+      searchValue: searchValue,
+      country: country,
+    });
   };
 
   const renderLimitItem = (number) => {

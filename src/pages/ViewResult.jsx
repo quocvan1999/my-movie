@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import {
+  getDetailQuocGia,
   getMovies,
   getMoviesInTypeAsync,
 } from "../redux/apiRequests/apiRequests";
@@ -44,6 +45,7 @@ const ViewResult = () => {
 
   const page = searchParam.get("page");
   const limit = searchParam.get("limit");
+  const country = searchParam.get("country");
   const searchValue = searchParam.get("searchValue");
 
   const getData = (keyUrl) => {
@@ -86,6 +88,13 @@ const ViewResult = () => {
         data = searchResult;
         pending = searchResultPending;
         break;
+      case "quoc-gia":
+        const { detailQuocGia, quocGiaPending } = useSelector(
+          (state) => state.quocGiaReducer
+        );
+        data = detailQuocGia;
+        pending = quocGiaPending;
+        break;
       default:
         const { phimTheoTheLoai, phimTheoTheLoaiPending } = useSelector(
           (state) => state.phimTheoTheLoaiReducer
@@ -97,7 +106,7 @@ const ViewResult = () => {
     return { data, pending };
   };
 
-  const getResultApi = async (keyUrl, limit, page, searchValue) => {
+  const getResultApi = async (keyUrl, limit, page, country, searchValue) => {
     let start = null;
     let success = null;
     let error = null;
@@ -129,6 +138,10 @@ const ViewResult = () => {
         success = setSearchResultSuccess;
         error = setSearchResultError;
         break;
+      case "quoc-gia":
+        dispatch(getDetailQuocGia(country, page, limit));
+        isBreak = true;
+        break;
       default:
         dispatch(getMoviesInTypeAsync(keyUrl, page, limit));
         isBreak = true;
@@ -151,7 +164,7 @@ const ViewResult = () => {
   const { data, pending } = getData(keyUrl);
 
   useEffect(() => {
-    getResultApi(keyUrl, limit, page, searchValue);
+    getResultApi(keyUrl, limit, page, country, searchValue);
   }, [keyUrl, limit, page, searchValue]);
 
   return (
@@ -163,16 +176,13 @@ const ViewResult = () => {
               <h1 className="text-[#E40813] font-bold text-4xl uppercase">
                 {data.data.titlePage}
               </h1>
-              {/* <div className="text-white text-center">
-                <p className="underline">{data.data.seoOnPage.titleHead}</p>
-              </div> */}
             </div>
           </div>
           <div>
             <VideoList type="" data={data.data} />
           </div>
           <div className="max-w-[1280px] mx-auto my-3 px-3 flex justify-between">
-            <LimitPage data={data.data} />
+            <LimitPage />
             <ListPage data={data.data} />
           </div>
         </div>
