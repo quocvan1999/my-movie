@@ -9,6 +9,7 @@ import tvShowsReducer from "./reducers/tvShowsReducer";
 import hoatHinhReducer from "./reducers/hoatHinhReducer";
 import searchResultReducer from "./reducers/searchResultReducer";
 import phimTheoTheLoaiReducer from "./reducers/phimTheoTheLoaiReducer";
+import quocGiaReducer from "./reducers/quocGiaReducer";
 
 export const store = configureStore({
   reducer: {
@@ -21,5 +22,6 @@ export const store = configureStore({
     videoPlayingReducer: videoPlayingReducer,
     searchResultReducer: searchResultReducer,
     phimTheoTheLoaiReducer: phimTheoTheLoaiReducer,
+    quocGiaReducer: quocGiaReducer,
   },
 });

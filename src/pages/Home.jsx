@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovies } from "../redux/apiRequests/apiRequests";
+import { getMovies, getQuocGia } from "../redux/apiRequests/apiRequests";
 
 import {
   setPhimMoiStart,
@@ -31,6 +31,7 @@ import {
 import Caroucel from "../components/Caroucel/Caroucel";
 import VideoList from "../components/VideosComponent/VideoList";
 import Loading from "../components/Loading";
+import Countrys from "../components/countryComponent/Countrys";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -46,6 +47,11 @@ const Home = () => {
   const { hoatHinh, hoatHinhPending } = useSelector(
     (state) => state.hoatHinhReducer
   );
+
+  const getQuocGiaApi = async () => {
+    const action = getQuocGia;
+    dispatch(action);
+  };
 
   const getPhimMoiApi = async () => {
     const action = getMovies(
@@ -113,6 +119,7 @@ const Home = () => {
     getPhimLeApi();
     getTvShowsApi();
     getHoatHinhApi();
+    getQuocGiaApi();
   }, []);
 
   return (
@@ -167,6 +174,9 @@ const Home = () => {
           ) : (
             ""
           )}
+        </div>
+        <div className="max-w-[1280px] mx-auto">
+          <Countrys />
         </div>
       </div>
     </div>

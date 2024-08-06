@@ -10,6 +10,21 @@ import {
   setPhimTheoTheLoaiError,
   resetPhimTheoTheLoai,
 } from "../reducers/phimTheoTheLoaiReducer";
+import {
+  setQuocGiaStart,
+  setQuocGiaSuccess,
+  setQuocGiaError,
+} from "../reducers/quocGiaReducer";
+
+export const getQuocGia = async (dispatch) => {
+  dispatch(setQuocGiaStart());
+  try {
+    const res = await axios.get("https://phimapi.com/quoc-gia");
+    dispatch(setQuocGiaSuccess(res.data));
+  } catch (error) {
+    dispatch(setQuocGiaError(error.message));
+  }
+};
 
 export const getMoviesInTypeAsync = (type, page, limit) => {
   return async (dispatch) => {
