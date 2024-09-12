@@ -43,11 +43,7 @@ const Header = () => {
           {/* Logo */}
           <div className="max-w-[150px]">
             <NavLink to="/" className="cursor-pointer">
-              <img
-                className="w-full"
-                src="../../public/images/logo.png"
-                alt="logo"
-              />
+              <img className="w-full" src="/images/logo.png" alt="logo" />
             </NavLink>
           </div>
           {/* BTN Menu */}

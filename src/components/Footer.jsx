@@ -8,11 +8,7 @@ const Footer = () => {
       <div className="max-w-[1280px] mx-auto flex flex-col sm:flex-row lg:flex-nowrap sm:flex-wrap px-3 py-6 lg:py-14 text-white">
         <div className="w-full sm:w-[calc(100%/3)] text-center lg:text-start mb-3">
           <NavLink to="/" className="flex justify-center lg:justify-start">
-            <img
-              className="w-[150px]"
-              src="../../public/images/logo.png"
-              alt="logo"
-            />
+            <img className="w-[150px]" src="/images/logo.png" alt="logo" />
           </NavLink>
           <p className="text-[14px] leading-[21px] mt-2 hover:text-[#e40813] transition-all ease-in-out duration-500 cursor-pointer">
             Email us: customer@streamit.com
